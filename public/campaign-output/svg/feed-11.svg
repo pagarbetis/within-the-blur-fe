@@ -1,0 +1,206 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1080 1350" width="1080" height="1350" fill="none">
+<title>Feed 11 · Morning Routine (Observe)</title>
+<defs>
+  <filter id="blur-heavy" x="-40%" y="-40%" width="180%" height="180%">
+    <feGaussianBlur stdDeviation="60"/>
+  </filter>
+  <filter id="blur-medium" x="-40%" y="-40%" width="180%" height="180%">
+    <feGaussianBlur stdDeviation="40"/>
+  </filter>
+  <filter id="blur-soft" x="-40%" y="-40%" width="180%" height="180%">
+    <feGaussianBlur stdDeviation="20"/>
+  </filter>
+  <filter id="grain" x="0" y="0" width="100%" height="100%">
+    <feTurbulence type="fractalNoise" baseFrequency="0.85" numOctaves="2" stitchTiles="stitch"/>
+    <feColorMatrix values="0 0 0 0 0.95  0 0 0 0 0.93  0 0 0 0 0.85  0 0 0 0.4 0"/>
+    <feComposite operator="in" in2="SourceGraphic"/>
+  </filter>
+  <linearGradient id="grad-warm" x1="0" y1="0" x2="1" y2="0">
+    <stop offset="0%" stop-color="#e36c49"/>
+    <stop offset="55%" stop-color="#e1b049"/>
+    <stop offset="100%" stop-color="#e492a5"/>
+  </linearGradient>
+  <linearGradient id="grad-terra-mustard" x1="0" y1="0" x2="1" y2="0">
+    <stop offset="0%" stop-color="#e36c49"/>
+    <stop offset="100%" stop-color="#e1b049"/>
+  </linearGradient>
+  <linearGradient id="grad-pink-blue" x1="0" y1="0" x2="1" y2="0">
+    <stop offset="0%" stop-color="#e492a5"/>
+    <stop offset="100%" stop-color="#6b8bc7"/>
+  </linearGradient>
+  <linearGradient id="grad-rainbow-band" x1="0" y1="0" x2="1" y2="0">
+    <stop offset="0%" stop-color="#e36c49" stop-opacity="0"/>
+    <stop offset="15%" stop-color="#e36c49"/>
+    <stop offset="40%" stop-color="#e1b049"/>
+    <stop offset="65%" stop-color="#aac8b7"/>
+    <stop offset="88%" stop-color="#6b8bc7"/>
+    <stop offset="100%" stop-color="#6b8bc7" stop-opacity="0"/>
+  </linearGradient>
+  <radialGradient id="rg-terra" cx="50%" cy="50%" r="50%">
+    <stop offset="0%" stop-color="#e36c49" stop-opacity="1"/>
+    <stop offset="55%" stop-color="#c24c2b" stop-opacity="0.4"/>
+    <stop offset="100%" stop-color="#e36c49" stop-opacity="0"/>
+  </radialGradient>
+  <radialGradient id="rg-mustard" cx="50%" cy="50%" r="50%">
+    <stop offset="0%" stop-color="#e1b049" stop-opacity="1"/>
+    <stop offset="55%" stop-color="#ba892c" stop-opacity="0.4"/>
+    <stop offset="100%" stop-color="#e1b049" stop-opacity="0"/>
+  </radialGradient>
+  <radialGradient id="rg-sage" cx="50%" cy="50%" r="50%">
+    <stop offset="0%" stop-color="#aac8b7" stop-opacity="1"/>
+    <stop offset="55%" stop-color="#5a7770" stop-opacity="0.4"/>
+    <stop offset="100%" stop-color="#aac8b7" stop-opacity="0"/>
+  </radialGradient>
+  <radialGradient id="rg-blue" cx="50%" cy="50%" r="50%">
+    <stop offset="0%" stop-color="#6b8bc7" stop-opacity="1"/>
+    <stop offset="55%" stop-color="#3d5389" stop-opacity="0.4"/>
+    <stop offset="100%" stop-color="#6b8bc7" stop-opacity="0"/>
+  </radialGradient>
+  <radialGradient id="rg-pink" cx="50%" cy="50%" r="50%">
+    <stop offset="0%" stop-color="#e492a5" stop-opacity="1"/>
+    <stop offset="55%" stop-color="#a4536a" stop-opacity="0.4"/>
+    <stop offset="100%" stop-color="#e492a5" stop-opacity="0"/>
+  </radialGradient>
+  <radialGradient id="rg-iris" cx="50%" cy="50%" r="50%">
+    <stop offset="0%" stop-color="#6b8bc7"/>
+    <stop offset="25%" stop-color="#3d5389"/>
+    <stop offset="60%" stop-color="#e492a5"/>
+    <stop offset="88%" stop-color="#e36c49"/>
+    <stop offset="100%" stop-color="#0A0908" stop-opacity="0"/>
+  </radialGradient>
+  <radialGradient id="rg-iris-mask" cx="50%" cy="50%" r="50%">
+    <stop offset="70%" stop-color="#0A0908" stop-opacity="0"/>
+    <stop offset="100%" stop-color="#0A0908" stop-opacity="1"/>
+  </radialGradient>
+  <radialGradient id="rg-vignette" cx="50%" cy="42%" r="70%">
+    <stop offset="35%" stop-color="#0A0908" stop-opacity="0"/>
+    <stop offset="78%" stop-color="#0A0908" stop-opacity="0.5"/>
+    <stop offset="100%" stop-color="#0A0908" stop-opacity="0.88"/>
+  </radialGradient>
+</defs>
+
+<!-- ============ CANVAS ============ -->
+<rect id="canvas" width="1080" height="1350" fill="#0A0908"/>
+
+<!-- ============ BACKGROUND BLURS ============ -->
+<g id="background-blurs">
+  <ellipse cx="-40" cy="140" rx="340" ry="340" fill="url(#rg-mustard)" filter="url(#blur-heavy)" opacity="0.6"/>
+  <ellipse cx="1160" cy="1200" rx="380" ry="380" fill="url(#rg-terra)" filter="url(#blur-heavy)" opacity="0.55"/>
+  <ellipse cx="-10" cy="650" rx="170" ry="170" fill="url(#rg-blue)" filter="url(#blur-medium)" opacity="0.45"/>
+</g>
+
+
+<!-- ============ FRAME ============ -->
+<rect id="frame-inset" x="32" y="32" width="1016" height="1286" rx="8" ry="8"
+      fill="none" stroke="rgba(237,230,216,0.06)" stroke-width="1"/>
+
+
+<!-- ============ PHONE UI ============ -->
+<g id="phone">
+  <rect x="240" y="170" width="600" height="720" rx="44" ry="44"
+        fill="rgba(20,18,16,0.95)" stroke="rgba(237,230,216,0.09)" stroke-width="1"/>
+  <rect x="246" y="176" width="588" height="708" rx="38" ry="38"
+        fill="none" stroke="rgba(237,230,216,0.03)" stroke-width="6"/>
+  <text x="286" y="234" fill="#EDE6D8"
+        font-family="'IBM Plex Mono', monospace"
+        font-weight="700" font-size="22" letter-spacing="0.4">08.00</text>
+  <text x="794" y="234" text-anchor="end" fill="#8a857a"
+        font-family="'IBM Plex Mono', monospace"
+        font-weight="500" font-size="15" letter-spacing="4.2"
+        style="text-transform:uppercase">Selasa</text>
+  <line x1="286" y1="252" x2="794" y2="252" stroke="rgba(237,230,216,0.08)" stroke-width="1"/>
+  <text x="286" y="296" fill="#EDE6D8"
+        font-family="Jost, 'Helvetica Neue', sans-serif"
+        font-weight="700" font-size="22">Rutinitas pagi</text>
+  <line x1="286" y1="316" x2="794" y2="316" stroke="rgba(237,230,216,0.06)" stroke-width="1"/>
+
+
+  <g id="item-weather">
+    
+    <rect x="308" y="351" width="34" height="34" rx="8" ry="8" fill="#aac8b7" stroke="#aac8b7" stroke-width="2" />
+    <path d="M270 365 L278 375 L292 357" stroke="#0A0908" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+    <text x="366" y="375" fill="#8a857a" font-family="Jost, 'Helvetica Neue', sans-serif"
+          font-weight="500" font-size="22">Weather</text>
+    <line x1="330" y1="378" x2="407" y2="378" stroke="rgba(138,133,122,0.6)" stroke-width="2"/>
+  </g>
+
+  <line x1="286" y1="404" x2="794" y2="404" stroke="rgba(237,230,216,0.05)" stroke-width="1"/>
+
+  <g id="item-email">
+    
+    <rect x="308" y="425" width="34" height="34" rx="8" ry="8" fill="#aac8b7" stroke="#aac8b7" stroke-width="2" />
+    <path d="M270 439 L278 449 L292 431" stroke="#0A0908" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+    <text x="366" y="449" fill="#8a857a" font-family="Jost, 'Helvetica Neue', sans-serif"
+          font-weight="500" font-size="22">Email</text>
+    <line x1="330" y1="452" x2="385" y2="452" stroke="rgba(138,133,122,0.6)" stroke-width="2"/>
+  </g>
+
+  <line x1="286" y1="478" x2="794" y2="478" stroke="rgba(237,230,216,0.05)" stroke-width="1"/>
+
+  <g id="item-instagram">
+    
+    <rect x="308" y="499" width="34" height="34" rx="8" ry="8" fill="#aac8b7" stroke="#aac8b7" stroke-width="2" />
+    <path d="M270 513 L278 523 L292 505" stroke="#0A0908" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+    <text x="366" y="523" fill="#8a857a" font-family="Jost, 'Helvetica Neue', sans-serif"
+          font-weight="500" font-size="22">Instagram</text>
+    <line x1="330" y1="526" x2="429" y2="526" stroke="rgba(138,133,122,0.6)" stroke-width="2"/>
+  </g>
+
+  <line x1="286" y1="552" x2="794" y2="552" stroke="rgba(237,230,216,0.05)" stroke-width="1"/>
+
+  <g id="item-whatsapp">
+    
+    <rect x="308" y="573" width="34" height="34" rx="8" ry="8" fill="#aac8b7" stroke="#aac8b7" stroke-width="2" />
+    <path d="M270 587 L278 597 L292 579" stroke="#0A0908" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+    <text x="366" y="597" fill="#8a857a" font-family="Jost, 'Helvetica Neue', sans-serif"
+          font-weight="500" font-size="22">WhatsApp</text>
+    <line x1="330" y1="600" x2="418" y2="600" stroke="rgba(138,133,122,0.6)" stroke-width="2"/>
+  </g>
+
+  <line x1="286" y1="626" x2="794" y2="626" stroke="rgba(237,230,216,0.05)" stroke-width="1"/>
+
+  <g id="item-calendar">
+    
+    <rect x="308" y="647" width="34" height="34" rx="8" ry="8" fill="#aac8b7" stroke="#aac8b7" stroke-width="2" />
+    <path d="M270 661 L278 671 L292 653" stroke="#0A0908" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+    <text x="366" y="671" fill="#8a857a" font-family="Jost, 'Helvetica Neue', sans-serif"
+          font-weight="500" font-size="22">Calendar</text>
+    <line x1="330" y1="674" x2="418" y2="674" stroke="rgba(138,133,122,0.6)" stroke-width="2"/>
+  </g>
+
+  <line x1="286" y1="700" x2="794" y2="700" stroke="rgba(237,230,216,0.05)" stroke-width="1"/>
+
+  <g id="item-cek-diri-sendiri">
+    <rect x="286" y="714" width="508" height="70" fill="rgba(227,108,73,0.10)"/><rect x="286" y="714" width="3" height="70" fill="#e36c49"/>
+    <rect x="308" y="731" width="34" height="34" rx="8" ry="8" fill="transparent" stroke="#e36c49" stroke-width="2" stroke-dasharray="4 3"/>
+    
+    <text x="366" y="755" fill="#e36c49" font-family="Jost, 'Helvetica Neue', sans-serif"
+          font-weight="700" font-size="22">Cek diri sendiri</text>
+    
+  </g>
+
+</g>
+
+<!-- ============ HEADLINE ============ -->
+<g id="typography-headline" font-family="Jost, 'Helvetica Neue', sans-serif"
+   font-weight="800" letter-spacing="-1.4" font-size="68">
+  <text x="80" y="1000" fill="#EDE6D8" style="text-transform:uppercase">Rutinitas</text>
+  <text x="80" y="1068" fill="#e1b049" font-style="italic" style="text-transform:uppercase">pagi.</text>
+</g>
+
+<!-- ============ CAPTION ============ -->
+<g id="caption" font-family="Jost, 'Helvetica Neue', sans-serif"
+   font-style="italic" font-weight="300" font-size="24" fill="#d6cdb9">
+  <text x="80" y="1175">Setiap pagi ada banyak hal yang kita pastikan.</text>
+  <text x="80" y="1210">Mungkin, ada satu yang bisa ikut ditambahkan.</text>
+</g>
+
+
+<!-- ============ GRAIN ============ -->
+<rect id="grain" width="1080" height="1350" fill="#EDE6D8" opacity="0.11" filter="url(#grain)"/>
+
+
+<!-- ============ (corners intentionally empty) ============ -->
+
+</svg>

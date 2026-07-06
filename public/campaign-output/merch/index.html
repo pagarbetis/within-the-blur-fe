@@ -1,0 +1,518 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="utf-8"/>
+<title>Merchandise · Within the Blur</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Jost:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,300&family=IBM+Plex+Mono:wght@400;500;600&display=swap');
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html, body { background: #0A0908; color: #EDE6D8; font-family: 'Jost', sans-serif; min-height: 100vh; }
+body {
+  background:
+    radial-gradient(circle at 8% 12%, rgba(227,108,73,0.15) 0%, transparent 50%),
+    radial-gradient(circle at 92% 88%, rgba(107,139,199,0.13) 0%, transparent 50%),
+    radial-gradient(circle at 82% 18%, rgba(228,146,165,0.10) 0%, transparent 40%),
+    #0A0908;
+  padding: 60px 60px 80px 60px;
+  position: relative;
+}
+body::after {
+  content: ''; position: fixed; inset: 0; pointer-events: none; z-index: 1;
+  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='120' height='120'><filter id='n'><feTurbulence baseFrequency='0.9' numOctaves='2' seed='7'/><feColorMatrix values='0 0 0 0 0.93 0 0 0 0 0.9 0 0 0 0 0.85 0 0 0 0.06 0'/></filter><rect width='120' height='120' filter='url(%23n)'/></svg>");
+  opacity: 0.35;
+}
+main { max-width: 1320px; margin: 0 auto; position: relative; z-index: 2; }
+
+header { margin-bottom: 60px; }
+.eyebrow { font-family: 'IBM Plex Mono', monospace; font-size: 11px; letter-spacing: 5.4px; text-transform: uppercase; color: #A69985; margin-bottom: 20px; }
+h1 { font-weight: 800; font-size: 82px; letter-spacing: -1.6px; line-height: 0.98; text-transform: uppercase; }
+h1 em { font-style: italic; color: #e36c49; }
+.lead { margin-top: 20px; font-size: 17px; font-style: italic; font-weight: 300; color: rgba(237,230,216,0.72); max-width: 720px; line-height: 1.6; }
+
+.grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 32px; }
+.item {
+  background: rgba(20,18,16,0.7);
+  border: 1px solid rgba(237,230,216,0.08);
+  border-radius: 18px;
+  padding: 32px 28px 28px;
+  display: flex; flex-direction: column;
+  min-height: 460px;
+}
+.item .canvas {
+  height: 240px; display: flex; align-items: center; justify-content: center;
+  margin-bottom: 24px; position: relative;
+}
+.item .num {
+  position: absolute; top: -8px; left: 0;
+  font-family: 'IBM Plex Mono', monospace; font-size: 38px; font-weight: 500;
+  color: rgba(237,230,216,0.14); letter-spacing: -1px; line-height: 1;
+}
+.item h3 { font-size: 22px; font-weight: 700; letter-spacing: -0.4px; text-transform: uppercase; margin-bottom: 6px; }
+.item .cat {
+  display: inline-block;
+  font-family: 'IBM Plex Mono', monospace; font-size: 9.5px; letter-spacing: 3.4px;
+  padding: 4px 10px; border-radius: 999px;
+  color: #0A0908; background: #EDE6D8; margin-bottom: 12px;
+}
+.item p { font-size: 13px; line-height: 1.65; color: rgba(237,230,216,0.75); font-weight: 400; }
+.item .price {
+  margin-top: auto; padding-top: 16px;
+  border-top: 1px solid rgba(237,230,216,0.08);
+  display: flex; justify-content: space-between; align-items: center;
+}
+.item .price .idr {
+  font-family: 'IBM Plex Mono', monospace; font-size: 14px; font-weight: 600;
+  color: #EDE6D8; letter-spacing: 0.5px;
+}
+.item .price .tag { font-family: 'IBM Plex Mono', monospace; font-size: 9.5px; letter-spacing: 2.5px; text-transform: uppercase; color: #A69985; }
+
+/* ============ MOCKUP SPECIFIC STYLES ============ */
+/* Keychain */
+.mockup-keychain { position: relative; }
+.mockup-keychain .ring { width: 32px; height: 32px; border-radius: 50%; border: 3px solid #A69985; position: absolute; top: 4px; left: 50%; transform: translateX(-50%); }
+.mockup-keychain .chain-link { width: 3px; height: 26px; background: #A69985; position: absolute; top: 36px; left: 50%; transform: translateX(-50%); border-radius: 2px; }
+.mockup-keychain .body {
+  width: 130px; height: 158px; margin-top: 68px;
+  background: linear-gradient(135deg, #e36c49 0%, #cc5638 100%);
+  border-radius: 18px 18px 20px 20px;
+  padding: 20px 16px;
+  display: flex; flex-direction: column; justify-content: space-between;
+  box-shadow: 0 12px 30px rgba(227,108,73,0.25), 0 2px 6px rgba(0,0,0,0.4);
+  position: relative;
+  transform: rotate(-4deg);
+}
+.mockup-keychain .body::before {
+  content: ''; position: absolute; top: -6px; left: 50%; transform: translateX(-50%);
+  width: 12px; height: 12px; background: #0A0908; border-radius: 50%;
+  border: 2px solid #A69985;
+}
+.mockup-keychain .k-brand { font-family: 'IBM Plex Mono', monospace; font-size: 8px; letter-spacing: 2.4px; color: rgba(10,9,8,0.7); text-transform: uppercase; }
+.mockup-keychain .k-quote { font-family: 'Jost', sans-serif; font-weight: 800; font-size: 22px; line-height: 0.96; color: #0A0908; letter-spacing: -0.5px; text-transform: uppercase; }
+.mockup-keychain .k-em { font-style: italic; font-weight: 700; }
+.mockup-keychain .k-tag { font-family: 'IBM Plex Mono', monospace; font-size: 7.5px; letter-spacing: 2px; color: rgba(10,9,8,0.55); text-transform: uppercase; text-align: right; }
+
+/* Enamel pin */
+.mockup-pin {
+  width: 180px; height: 180px; border-radius: 50%;
+  background: radial-gradient(circle at 30% 30%, #e492a5 0%, #b96a7f 100%);
+  box-shadow: 0 14px 34px rgba(228,146,165,0.35), inset 0 -8px 16px rgba(0,0,0,0.25), inset 0 2px 4px rgba(255,255,255,0.35);
+  display: flex; flex-direction: column; justify-content: center; align-items: center;
+  border: 2px solid #A69985;
+  position: relative;
+}
+.mockup-pin::before {
+  content: ''; position: absolute; top: 12px; left: 30%; width: 40px; height: 20px;
+  background: rgba(255,255,255,0.3); border-radius: 50%; filter: blur(6px);
+}
+.mockup-pin .p-glyph { font-family: 'Jost', sans-serif; font-weight: 800; font-size: 42px; color: #0A0908; letter-spacing: -1.5px; line-height: 1; text-transform: uppercase; }
+.mockup-pin .p-glyph em { font-style: italic; color: #EDE6D8; }
+.mockup-pin .p-sub { margin-top: 6px; font-family: 'IBM Plex Mono', monospace; font-size: 7px; letter-spacing: 2.4px; color: rgba(10,9,8,0.7); text-transform: uppercase; }
+
+/* Sticker pack */
+.mockup-stickers { display: flex; gap: 12px; align-items: center; }
+.sticker {
+  padding: 12px 10px; border-radius: 12px;
+  background: #EDE6D8; color: #0A0908;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.3);
+  width: 68px; text-align: center;
+  transform: rotate(-6deg);
+  position: relative;
+}
+.sticker + .sticker { transform: rotate(4deg); margin-left: -8px; }
+.sticker + .sticker + .sticker { transform: rotate(-2deg); margin-left: -8px; }
+.sticker .s-mascot { width: 44px; height: 44px; margin: 0 auto 6px; border-radius: 50%; }
+.sticker[data-c="chimp"] .s-mascot { background: radial-gradient(circle at 35% 35%, #f0a289 0%, #e36c49 60%, #b04a2c 100%); }
+.sticker[data-c="human"] .s-mascot { background: radial-gradient(circle at 35% 35%, #ecc772 0%, #e1b049 60%, #a37e2b 100%); }
+.sticker[data-c="computer"] .s-mascot { background: radial-gradient(circle at 35% 35%, #c8e0d3 0%, #aac8b7 60%, #7ba191 100%); }
+.sticker .s-label { font-family: 'IBM Plex Mono', monospace; font-size: 8px; letter-spacing: 1.6px; text-transform: uppercase; font-weight: 600; }
+
+/* Tote bag */
+.mockup-tote {
+  width: 190px; height: 220px;
+  background: #EDE6D8; color: #0A0908;
+  border-radius: 4px;
+  padding: 30px 22px 22px;
+  position: relative;
+  box-shadow: 0 14px 34px rgba(237,230,216,0.14);
+  display: flex; flex-direction: column; justify-content: space-between;
+  transform: rotate(-2deg);
+}
+.mockup-tote::before, .mockup-tote::after {
+  content: ''; position: absolute; top: -34px; width: 12px; height: 46px;
+  border: 3px solid #EDE6D8; border-bottom: none; border-radius: 20px 20px 0 0;
+  background: transparent;
+}
+.mockup-tote::before { left: 34px; }
+.mockup-tote::after  { right: 34px; }
+.mockup-tote .t-headline { font-family: 'Jost', sans-serif; font-weight: 800; font-size: 22px; line-height: 0.98; letter-spacing: -0.8px; text-transform: uppercase; }
+.mockup-tote .t-headline em { font-style: italic; color: #e36c49; }
+.mockup-tote .t-quote { margin-top: 12px; font-size: 9px; line-height: 1.5; color: rgba(10,9,8,0.7); font-style: italic; }
+.mockup-tote .t-tag { font-family: 'IBM Plex Mono', monospace; font-size: 7.5px; letter-spacing: 2.4px; color: rgba(10,9,8,0.55); text-transform: uppercase; }
+
+/* Phone grip / pop socket */
+.mockup-grip {
+  width: 130px; height: 130px; border-radius: 50%;
+  background: radial-gradient(circle at 30% 30%, #7fa6dc 0%, #6b8bc7 50%, #4a6ba5 100%);
+  box-shadow: 0 14px 34px rgba(107,139,199,0.32), inset 0 -6px 12px rgba(0,0,0,0.2);
+  display: flex; flex-direction: column; justify-content: center; align-items: center;
+  border: 3px solid rgba(255,255,255,0.14);
+  position: relative;
+}
+.mockup-grip::before {
+  content: ''; position: absolute; top: 10px; left: 26%; width: 30px; height: 14px;
+  background: rgba(255,255,255,0.3); border-radius: 50%; filter: blur(4px);
+}
+.mockup-grip .g-num { font-family: 'IBM Plex Mono', monospace; font-size: 32px; font-weight: 500; color: #EDE6D8; letter-spacing: -1px; line-height: 1; }
+.mockup-grip .g-lbl { margin-top: 4px; font-family: 'IBM Plex Mono', monospace; font-size: 7px; letter-spacing: 2.4px; color: rgba(237,230,216,0.75); text-transform: uppercase; }
+.mockup-grip .g-mini { margin-top: 8px; font-family: 'Jost', sans-serif; font-weight: 700; font-size: 10px; color: #EDE6D8; letter-spacing: -0.2px; text-transform: uppercase; }
+
+/* Journal / notebook */
+.mockup-journal {
+  width: 160px; height: 220px;
+  background: linear-gradient(135deg, #aac8b7 0%, #7ba191 100%);
+  border-radius: 4px 12px 12px 4px;
+  padding: 30px 22px;
+  box-shadow: 0 14px 34px rgba(170,200,183,0.28), -4px 0 0 rgba(10,9,8,0.4);
+  display: flex; flex-direction: column;
+  position: relative;
+  transform: rotate(3deg);
+}
+.mockup-journal::before {
+  content: ''; position: absolute; left: 8px; top: 20px; bottom: 20px; width: 2px;
+  background: rgba(10,9,8,0.14);
+}
+.mockup-journal .j-eye { font-family: 'IBM Plex Mono', monospace; font-size: 8px; letter-spacing: 2.4px; color: rgba(10,9,8,0.55); text-transform: uppercase; margin-bottom: 14px; }
+.mockup-journal .j-title { font-family: 'Jost', sans-serif; font-weight: 800; font-size: 26px; line-height: 0.98; letter-spacing: -0.6px; color: #0A0908; text-transform: uppercase; }
+.mockup-journal .j-em { font-style: italic; }
+.mockup-journal .j-lines { margin-top: 18px; }
+.mockup-journal .j-lines div { height: 1px; background: rgba(10,9,8,0.18); margin: 8px 0; }
+.mockup-journal .j-brand { margin-top: auto; font-family: 'IBM Plex Mono', monospace; font-size: 7px; letter-spacing: 2px; color: rgba(10,9,8,0.5); text-transform: uppercase; }
+
+/* Tee shirt */
+.mockup-tee {
+  width: 220px; height: 200px;
+  position: relative;
+}
+.mockup-tee svg { width: 100%; height: 100%; }
+.mockup-tee .tee-quote {
+  position: absolute; top: 68px; left: 50%; transform: translateX(-50%);
+  text-align: center; color: #EDE6D8;
+}
+.mockup-tee .tee-eye { font-family: 'IBM Plex Mono', monospace; font-size: 7.5px; letter-spacing: 3px; color: rgba(237,230,216,0.55); text-transform: uppercase; margin-bottom: 6px; }
+.mockup-tee .tee-h { font-family: 'Jost', sans-serif; font-weight: 800; font-size: 16px; letter-spacing: -0.3px; text-transform: uppercase; line-height: 0.98; }
+.mockup-tee .tee-h em { color: #e36c49; }
+.mockup-tee .tee-sub { margin-top: 4px; font-family: 'IBM Plex Mono', monospace; font-size: 6.5px; letter-spacing: 2.4px; color: rgba(237,230,216,0.55); }
+
+/* Card / postcard */
+.mockup-card {
+  width: 200px; height: 140px;
+  background: #EDE6D8; color: #0A0908;
+  border-radius: 6px;
+  padding: 16px 18px;
+  box-shadow: 0 12px 30px rgba(0,0,0,0.35);
+  transform: rotate(-3deg);
+  display: flex; flex-direction: column; justify-content: space-between;
+}
+.mockup-card .c-eye { font-family: 'IBM Plex Mono', monospace; font-size: 7.5px; letter-spacing: 2.4px; color: rgba(10,9,8,0.55); text-transform: uppercase; }
+.mockup-card .c-quote { font-family: 'Jost', sans-serif; font-weight: 700; font-size: 15px; line-height: 1.15; letter-spacing: -0.2px; color: #0A0908; }
+.mockup-card .c-quote em { font-style: italic; color: #e36c49; }
+.mockup-card .c-sign { font-family: 'IBM Plex Mono', monospace; font-size: 7px; letter-spacing: 2px; color: rgba(10,9,8,0.5); text-transform: uppercase; text-align: right; }
+
+/* Bookmark */
+.mockup-bookmark {
+  width: 60px; height: 210px;
+  background: linear-gradient(180deg, #e1b049 0%, #a37e2b 100%);
+  padding: 20px 10px 30px;
+  position: relative;
+  display: flex; flex-direction: column; align-items: center; justify-content: space-between;
+  box-shadow: 0 14px 34px rgba(225,176,73,0.28);
+  transform: rotate(-4deg);
+}
+.mockup-bookmark::after {
+  content: ''; position: absolute; bottom: -12px; left: 0; right: 0; height: 20px;
+  background: linear-gradient(180deg, #a37e2b 0%, transparent 100%);
+  clip-path: polygon(0 0, 100% 0, 50% 100%);
+}
+.mockup-bookmark .bm-num { font-family: 'IBM Plex Mono', monospace; font-size: 22px; font-weight: 500; color: #0A0908; letter-spacing: -1px; line-height: 1; writing-mode: vertical-rl; transform: rotate(180deg); }
+.mockup-bookmark .bm-quote { writing-mode: vertical-rl; transform: rotate(180deg); font-family: 'Jost', sans-serif; font-weight: 800; font-size: 12px; color: #0A0908; letter-spacing: 2px; text-transform: uppercase; }
+.mockup-bookmark .bm-em { font-style: italic; }
+
+/* Section divider */
+.divider {
+  margin: 60px 0 30px; display: flex; align-items: center; gap: 24px;
+}
+.divider .line { flex: 1; height: 1px; background: rgba(237,230,216,0.14); }
+.divider .lbl { font-family: 'IBM Plex Mono', monospace; font-size: 11px; letter-spacing: 5.4px; color: #A69985; text-transform: uppercase; }
+
+.spec-block {
+  margin-top: 60px; padding: 32px;
+  background: rgba(20,18,16,0.7); border: 1px solid rgba(237,230,216,0.08);
+  border-radius: 18px;
+}
+.spec-block h2 { font-size: 22px; font-weight: 700; text-transform: uppercase; letter-spacing: -0.3px; margin-bottom: 20px; }
+.spec-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; }
+.spec-grid .cell {
+  padding: 20px 18px; background: rgba(10,9,8,0.6); border-radius: 12px;
+  border-left: 3px solid #e36c49;
+}
+.spec-grid .cell:nth-child(2) { border-left-color: #e1b049; }
+.spec-grid .cell:nth-child(3) { border-left-color: #aac8b7; }
+.spec-grid .cell:nth-child(4) { border-left-color: #6b8bc7; }
+.spec-grid .cell b { display: block; font-size: 10px; letter-spacing: 3.4px; text-transform: uppercase; color: #A69985; font-weight: 500; font-family: 'IBM Plex Mono', monospace; margin-bottom: 8px; }
+.spec-grid .cell span { font-family: 'Jost', sans-serif; font-size: 14px; color: #EDE6D8; line-height: 1.5; font-weight: 400; }
+
+footer { margin-top: 50px; padding-top: 20px; border-top: 1px solid rgba(237,230,216,0.08); text-align: center; font-family: 'IBM Plex Mono', monospace; font-size: 10px; letter-spacing: 3px; color: #7c7266; text-transform: uppercase; }
+
+</style>
+</head>
+<body>
+
+<main>
+<header>
+  <div class="eyebrow">Merchandise Range · Campaign Extension</div>
+  <h1>Bawa pesannya<br/>ke <em>kehidupan sehari-hari.</em></h1>
+  <p class="lead">7 merch item yang fleksibel dipakai — dari clip-on tas sampai wallpaper HP. Palet & typography persis campaign. Fungsional dulu, dekoratif kemudian.</p>
+</header>
+
+<div class="grid">
+  <!-- 1. KEYCHAIN -->
+  <div class="item">
+    <div class="canvas">
+      <div class="num">01</div>
+      <div class="mockup-keychain">
+        <div class="ring"></div>
+        <div class="chain-link"></div>
+        <div class="body">
+          <div>
+            <div class="k-brand">within the blur</div>
+            <div class="k-quote" style="margin-top:10px">jeda·<span class="k-em">sadar</span>·kenali.</div>
+          </div>
+          <div class="k-tag">no. 01 / chimp</div>
+        </div>
+      </div>
+    </div>
+    <span class="cat">Gantungan Kunci</span>
+    <h3>Chimp Keychain</h3>
+    <p>Akrilik glossy 3mm, 45×60mm, cetak UV dua sisi. Ring stainless steel. Cocok clip di ransel, tempat pensil, atau kunci kos. Tiga varian warna (Chimp / Human / Computer).</p>
+    <div class="price">
+      <div class="idr">IDR 35.000</div>
+      <div class="tag">Set 3 · IDR 90k</div>
+    </div>
+  </div>
+
+  <!-- 2. ENAMEL PIN -->
+  <div class="item">
+    <div class="canvas">
+      <div class="num">02</div>
+      <div class="mockup-pin">
+        <div class="p-glyph">jeda.<br/><em>sadar.</em><br/>kenali.</div>
+        <div class="p-sub">within the blur</div>
+      </div>
+    </div>
+    <span class="cat">Enamel Pin</span>
+    <h3>Manifesto Pin</h3>
+    <p>Hard enamel 32mm, back stud + rubber clutch. Warna terracotta / pink / mustard. Cocok di jaket denim, tas selempang, atau tote — pemakai jadi berjalan-jalan.</p>
+    <div class="price">
+      <div class="idr">IDR 45.000</div>
+      <div class="tag">Kolek · 3 warna</div>
+    </div>
+  </div>
+
+  <!-- 3. STICKER PACK -->
+  <div class="item">
+    <div class="canvas">
+      <div class="num">03</div>
+      <div class="mockup-stickers">
+        <div class="sticker" data-c="chimp"><div class="s-mascot"></div><div class="s-label">Chimp</div></div>
+        <div class="sticker" data-c="human"><div class="s-mascot"></div><div class="s-label">Human</div></div>
+        <div class="sticker" data-c="computer"><div class="s-mascot"></div><div class="s-label">Computer</div></div>
+      </div>
+    </div>
+    <span class="cat">Sticker Pack</span>
+    <h3>3 Voice Sticker Set</h3>
+    <p>Vinyl matte die-cut, tahan air. Ukuran 60×80mm masing-masing + 5 stiker kutipan mini (quote). Bebas ditempel di laptop, botol minum, planner.</p>
+    <div class="price">
+      <div class="idr">IDR 25.000</div>
+      <div class="tag">Isi 8 · A6 sheet</div>
+    </div>
+  </div>
+
+  <!-- 4. TOTE BAG -->
+  <div class="item">
+    <div class="canvas">
+      <div class="num">04</div>
+      <div class="mockup-tote">
+        <div>
+          <div class="t-headline">Within the<br/><em>blur.</em></div>
+          <div class="t-quote">"Kadang jeda sebentar cukup untuk dengerin diri sendiri."</div>
+        </div>
+        <div class="t-tag">#JedaSadarKenali</div>
+      </div>
+    </div>
+    <span class="cat">Tote Bag</span>
+    <h3>Canvas Tote 12oz</h3>
+    <p>Kanvas 12oz warna raw / bone. Cetak DTF terracotta+italic mustard. 38×42cm dengan tali 60cm. Fungsional buat kampus, workshop, atau ke event campaign.</p>
+    <div class="price">
+      <div class="idr">IDR 95.000</div>
+      <div class="tag">2 warna base</div>
+    </div>
+  </div>
+
+  <!-- 5. PHONE GRIP -->
+  <div class="item">
+    <div class="canvas">
+      <div class="num">05</div>
+      <div class="mockup-grip">
+        <div class="g-num">90s</div>
+        <div class="g-lbl">Loading</div>
+        <div class="g-mini">Jeda dulu.</div>
+      </div>
+    </div>
+    <span class="cat">Phone Grip</span>
+    <h3>Loading 90s Grip</h3>
+    <p>Pop-grip 40mm dengan reminder visual "loading… jeda dulu". Warna Kabut (biru). Setiap kali angkat HP, ketemu pengingat kecil buat tarik napas.</p>
+    <div class="price">
+      <div class="idr">IDR 40.000</div>
+      <div class="tag">Kompatibel semua HP</div>
+    </div>
+  </div>
+
+  <!-- 6. JOURNAL -->
+  <div class="item">
+    <div class="canvas">
+      <div class="num">06</div>
+      <div class="mockup-journal">
+        <div class="j-eye">a5 · 120 pages</div>
+        <div class="j-title">1 baris<br/><span class="j-em">sehari.</span></div>
+        <div class="j-lines"><div></div><div></div><div></div><div></div></div>
+        <div class="j-brand">within the blur</div>
+      </div>
+    </div>
+    <span class="cat">Jurnal</span>
+    <h3>One-Line Journal</h3>
+    <p>Jurnal A5 · 120 halaman · softcover Sage. Setiap halaman 1 kolom kecil ("hari ini kamu berjumpa apa?"). Cocok untuk yang belum siap jurnal panjang.</p>
+    <div class="price">
+      <div class="idr">IDR 85.000</div>
+      <div class="tag">Bonus book-mark</div>
+    </div>
+  </div>
+
+  <!-- 7. TEE -->
+  <div class="item">
+    <div class="canvas">
+      <div class="num">07</div>
+      <div class="mockup-tee">
+        <svg viewBox="0 0 220 200">
+          <path d="M60 40 L90 25 Q110 45 130 25 L160 40 L200 60 L190 90 L165 75 L165 190 L55 190 L55 75 L30 90 L20 60 Z"
+                fill="#0A0908" stroke="rgba(237,230,216,0.14)" stroke-width="1.5"/>
+        </svg>
+        <div class="tee-quote">
+          <div class="tee-eye">within the blur</div>
+          <div class="tee-h">jeda<br/><em>sadar</em><br/>kenali.</div>
+          <div class="tee-sub">no. 03 · manifesto</div>
+        </div>
+      </div>
+    </div>
+    <span class="cat">Kaos</span>
+    <h3>Manifesto Tee</h3>
+    <p>Kaos katun combed 30s. Cetak plastisol putih + terracotta di dada. Unisex, size S–XXL. Fit relaxed cocok layer atau standalone.</p>
+    <div class="price">
+      <div class="idr">IDR 165.000</div>
+      <div class="tag">2 warna · 5 size</div>
+    </div>
+  </div>
+
+  <!-- 8. POSTCARD SET -->
+  <div class="item">
+    <div class="canvas">
+      <div class="num">08</div>
+      <div class="mockup-card">
+        <div class="c-eye">postcard · 04 / 12</div>
+        <div class="c-quote">"Siapa yang bicara <em>duluan</em> sebelum kamu sempat mikir?"</div>
+        <div class="c-sign">within the blur — for someone</div>
+      </div>
+    </div>
+    <span class="cat">Postcard Set</span>
+    <h3>Kartu Refleksi × 12</h3>
+    <p>Set 12 kartu 10×15 cm, art paper 260gsm. Di depan quote; di belakang ruang tulis untuk kirim ke teman. Alat kecil buat memulai obrolan susah.</p>
+    <div class="price">
+      <div class="idr">IDR 75.000</div>
+      <div class="tag">12 desain unik</div>
+    </div>
+  </div>
+
+  <!-- 9. BOOKMARK -->
+  <div class="item">
+    <div class="canvas">
+      <div class="num">09</div>
+      <div class="mockup-bookmark">
+        <div class="bm-num">02</div>
+        <div class="bm-quote">Cukup <span class="bm-em">jeda.</span></div>
+      </div>
+    </div>
+    <span class="cat">Pembatas Buku</span>
+    <h3>Pause Bookmark</h3>
+    <p>Bookmark 5×18cm, art paper 350gsm laminated matte. Setiap bookmark satu suara (Chimp / Human / Computer) dengan quote. Selipin di buku pelajaran.</p>
+    <div class="price">
+      <div class="idr">IDR 15.000</div>
+      <div class="tag">Set 3 · IDR 40k</div>
+    </div>
+  </div>
+</div>
+
+<div class="divider">
+  <span class="lbl">Bundling</span>
+  <div class="line"></div>
+</div>
+
+<div class="spec-block">
+  <h2>Paket Merchandise</h2>
+  <div class="spec-grid">
+    <div class="cell">
+      <b>Paket Cek Diri</b>
+      <span>1 Pin · 1 Sticker Pack · 3 Postcard<br/><i style="color:#e36c49; font-weight:600">IDR 85.000</i></span>
+    </div>
+    <div class="cell">
+      <b>Paket Ruang Jeda</b>
+      <span>1 Journal · 1 Bookmark Set · 3 Postcard<br/><i style="color:#e1b049; font-weight:600">IDR 135.000</i></span>
+    </div>
+    <div class="cell">
+      <b>Paket Sehari-hari</b>
+      <span>1 Tote · 1 Phone Grip · 1 Keychain<br/><i style="color:#aac8b7; font-weight:600">IDR 155.000</i></span>
+    </div>
+    <div class="cell">
+      <b>Paket Manifesto</b>
+      <span>1 Tee · 1 Pin · 1 Journal · Sticker Pack<br/><i style="color:#6b8bc7; font-weight:600">IDR 285.000</i></span>
+    </div>
+  </div>
+</div>
+
+<div class="spec-block" style="margin-top:24px">
+  <h2>Produksi & Vendor</h2>
+  <div class="spec-grid">
+    <div class="cell">
+      <b>Cetak</b>
+      <span>DTF, UV printing, plastisol screen print — cari vendor lokal Bandung / Jakarta / Yogya untuk cost-efficient.</span>
+    </div>
+    <div class="cell">
+      <b>Bahan</b>
+      <span>Kanvas 12oz, katun combed 30s, art paper 260/350gsm, akrilik 3mm, vinyl matte water-resistant.</span>
+    </div>
+    <div class="cell">
+      <b>Palet Warna</b>
+      <span>Terracotta #e36c49 · Mustard #e1b049 · Sage #aac8b7 · Blue #6b8bc7 · Pink #e492a5 · Ivory #EDE6D8 · BG #0A0908.</span>
+    </div>
+    <div class="cell">
+      <b>Distribusi</b>
+      <span>Booth sekolah + online (Shopee / Tokopedia). Grand-launch di event peluncuran campaign. Percentage revenue dialokasikan ke BK sekolah.</span>
+    </div>
+  </div>
+</div>
+
+<footer>
+  Within the Blur · Merchandise Range · Feb 2026 · #JedaSadarKenali
+</footer>
+</main>
+
+</body>
+</html>

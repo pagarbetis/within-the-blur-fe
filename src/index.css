@@ -1,0 +1,258 @@
+@import url('https://fonts.googleapis.com/css2?family=Jost:wght@200;300;400;500;600;700;800&family=Manrope:wght@300;400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+    /* Within The Blur — palette baru sesuai referensi */
+    --bg-deep: #0A0908;
+    --bg-soft: #14110F;
+    --ivory: #EDE6D8;
+    --ivory-soft: #d6cdb9;
+    --taupe: #8a857a;
+
+    /* Primary palette */
+    --terracotta: #e36c49;
+    --terracotta-deep: #c24c2b;
+    --blue: #6b8bc7;
+    --blue-deep: #4f70b6;
+    --mustard: #e1b049;
+    --mustard-deep: #ba892c;
+    --pink: #e492a5;
+    --pink-deep: #cb5186;
+    --sage: #aac8b7;
+    --sage-deep: #8db3af;
+
+    /* Logo-inspired blob colors */
+    --blob-mustard: #ba892c;
+    --blob-terracotta: #6e2a1c;
+    --blob-sage: #5a7770;
+
+    /* shadcn tokens */
+    --background: 24 12% 4%;
+    --foreground: 40 30% 90%;
+    --card: 24 12% 6%;
+    --card-foreground: 40 30% 90%;
+    --popover: 24 12% 6%;
+    --popover-foreground: 40 30% 90%;
+    --primary: 14 73% 59%;
+    --primary-foreground: 24 12% 4%;
+    --secondary: 24 6% 14%;
+    --secondary-foreground: 40 30% 90%;
+    --muted: 24 6% 14%;
+    --muted-foreground: 40 8% 64%;
+    --accent: 41 73% 58%;
+    --accent-foreground: 24 12% 4%;
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 40 30% 90%;
+    --border: 40 30% 90% / 0.08;
+    --input: 40 30% 90% / 0.08;
+    --ring: 14 73% 59%;
+    --radius: 1rem;
+}
+
+* {
+    border-color: hsl(40 30% 90% / 0.08);
+}
+
+html, body, #root {
+    margin: 0;
+    padding: 0;
+    background: var(--bg-deep);
+    color: var(--ivory);
+    font-family: 'Manrope', system-ui, -apple-system, sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    overflow-x: hidden;
+    min-height: 100vh;
+    font-weight: 400;
+    letter-spacing: -0.005em;
+}
+
+/* Any semantic heading tag defaults to Jost bold */
+h1, h2, h3, h4, h5, h6 {
+    font-family: 'Jost', system-ui, -apple-system, sans-serif;
+}
+
+body {
+    cursor: auto;
+}
+
+/* Show native cursor everywhere */
+@media (hover: none), (pointer: coarse) {
+    body { cursor: auto; }
+    .cursor-follower { display: none !important; }
+}
+
+a, button, [role="button"], input, textarea {
+    cursor: pointer;
+}
+a[disabled], button[disabled] { cursor: not-allowed; }
+input, textarea { cursor: text; }
+
+::selection {
+    background: rgba(227, 108, 73, 0.35);
+    color: var(--ivory);
+}
+
+/* Scrollbar */
+::-webkit-scrollbar { width: 8px; height: 8px; }
+::-webkit-scrollbar-track { background: var(--bg-deep); }
+::-webkit-scrollbar-thumb {
+    background: rgba(227, 108, 73, 0.3);
+    border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover { background: rgba(227, 108, 73, 0.55); }
+
+/* Typography helpers — Jost for headline/display, Manrope for body */
+.font-display {
+    font-family: 'Jost', system-ui, -apple-system, sans-serif;
+    font-weight: 500;
+    letter-spacing: -0.01em;
+}
+.font-display-bold {
+    font-family: 'Jost', system-ui, -apple-system, sans-serif;
+    font-weight: 700;
+    letter-spacing: -0.02em;
+}
+.font-body {
+    font-family: 'Manrope', system-ui, -apple-system, sans-serif;
+    font-weight: 400;
+    letter-spacing: -0.005em;
+}
+
+/* Subhead helpers now use Jost/Manrope (sans-serif) — no italic serif */
+.font-subhead {
+    font-family: 'Manrope', system-ui, -apple-system, sans-serif;
+    font-weight: 400;
+    letter-spacing: -0.005em;
+}
+.font-subhead-italic {
+    font-family: 'Manrope', system-ui, -apple-system, sans-serif;
+    font-style: normal;
+    font-weight: 500;
+    letter-spacing: -0.005em;
+}
+.font-mono {
+    font-family: 'IBM Plex Mono', 'Courier New', Courier, monospace;
+    font-weight: 500;
+}
+
+.tracking-mega { letter-spacing: 0.32em; }
+.tracking-ultra { letter-spacing: 0.42em; }
+
+/* Grain / noise overlay */
+.noise-overlay {
+    background-image: url("data:image/svg+xml;utf8,<svg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.92' numOctaves='2' stitchTiles='stitch'/><feColorMatrix values='0 0 0 0 0.95 0 0 0 0 0.93 0 0 0 0 0.85 0 0 0 0.4 0'/></filter><rect width='100%25' height='100%25' filter='url(%23n)'/></svg>");
+    opacity: 0.05;
+    mix-blend-mode: overlay;
+}
+
+/* Heavy grain (for mascot silhouettes) */
+.grain-heavy {
+    background-image: url("data:image/svg+xml;utf8,<svg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='1.4' numOctaves='3' stitchTiles='stitch'/><feColorMatrix values='0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.7 0'/></filter><rect width='100%25' height='100%25' filter='url(%23n)'/></svg>");
+    mix-blend-mode: multiply;
+    opacity: 0.5;
+}
+
+/* Pulse-glow */
+@keyframes pulse-glow {
+    0%,100% { box-shadow: 0 0 24px rgba(227, 108, 73, 0.35); }
+    50%     { box-shadow: 0 0 44px rgba(225, 176, 73, 0.55); }
+}
+.pulse-glow { animation: pulse-glow 3.4s ease-in-out infinite; }
+
+/* Floating particles */
+@keyframes drift-up {
+    0%   { transform: translate3d(0,0,0); opacity: 0; }
+    10%  { opacity: var(--maxop, 0.5); }
+    100% { transform: translate3d(var(--dx,0px), -110vh, 0); opacity: 0; }
+}
+
+/* Marquee */
+@keyframes marquee {
+    from { transform: translateX(0); }
+    to   { transform: translateX(-50%); }
+}
+.marquee-track { animation: marquee 42s linear infinite; }
+
+/* Glass */
+.glass {
+    background: rgba(255,255,255,0.03);
+    backdrop-filter: blur(18px);
+    -webkit-backdrop-filter: blur(18px);
+    border: 1px solid rgba(255,255,255,0.07);
+}
+.glass-strong {
+    background: rgba(14,12,11,0.7);
+    backdrop-filter: blur(22px);
+    -webkit-backdrop-filter: blur(22px);
+    border: 1px solid rgba(255,255,255,0.09);
+}
+
+/* Gradient text — terracotta to mustard */
+.text-gradient-warm {
+    background: linear-gradient(95deg, #e36c49 0%, #e1b049 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+}
+.text-gradient-cool {
+    background: linear-gradient(95deg, #6b8bc7 0%, #aac8b7 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+}
+.text-gradient-multi {
+    background: linear-gradient(95deg, #e36c49 0%, #e1b049 35%, #aac8b7 70%, #6b8bc7 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+}
+
+/* Pointer-events fix for nested icons so tests/users hit the parent */
+button > svg,
+button > span,
+a > svg,
+a > span,
+[role="button"] > svg,
+[role="button"] > span {
+    pointer-events: none;
+}
+button [data-testid],
+a [data-testid] {
+    pointer-events: auto;
+}
+
+/* SVG silhouettes — for mascots */
+.mascot-svg {
+    filter: drop-shadow(0 0 30px currentColor);
+}
+
+/* Rotate float for pill shapes */
+@keyframes spin-slow {
+    from { transform: rotate(0deg); }
+    to   { transform: rotate(360deg); }
+}
+.spin-slow { animation: spin-slow 80s linear infinite; }
+.spin-slower { animation: spin-slow 140s linear infinite; }
+
+/* Hover lift */
+.lift-on-hover { transition: transform 0.4s cubic-bezier(0.22, 0.65, 0.34, 1); }
+.lift-on-hover:hover { transform: translateY(-6px); }
+
+/* Cursor crosshair brackets */
+.bracket {
+    position: absolute;
+    width: 8px;
+    height: 8px;
+    border: 1.5px solid currentColor;
+}
+.bracket-tl { top: 0; left: 0; border-right: none; border-bottom: none; }
+.bracket-tr { top: 0; right: 0; border-left: none; border-bottom: none; }
+.bracket-bl { bottom: 0; left: 0; border-right: none; border-top: none; }
+.bracket-br { bottom: 0; right: 0; border-left: none; border-top: none; }
+
+/* Hover-target tag (no styling — used as JS hook) */
+.hover-target {}
