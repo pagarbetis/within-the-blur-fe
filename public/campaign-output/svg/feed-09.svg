@@ -1,0 +1,143 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1080 1350" width="1080" height="1350" fill="none">
+<title>Feed 09 · CTA</title>
+<defs>
+  <filter id="blur-heavy" x="-40%" y="-40%" width="180%" height="180%">
+    <feGaussianBlur stdDeviation="60"/>
+  </filter>
+  <filter id="blur-medium" x="-40%" y="-40%" width="180%" height="180%">
+    <feGaussianBlur stdDeviation="40"/>
+  </filter>
+  <filter id="blur-soft" x="-40%" y="-40%" width="180%" height="180%">
+    <feGaussianBlur stdDeviation="20"/>
+  </filter>
+  <filter id="grain" x="0" y="0" width="100%" height="100%">
+    <feTurbulence type="fractalNoise" baseFrequency="0.85" numOctaves="2" stitchTiles="stitch"/>
+    <feColorMatrix values="0 0 0 0 0.95  0 0 0 0 0.93  0 0 0 0 0.85  0 0 0 0.4 0"/>
+    <feComposite operator="in" in2="SourceGraphic"/>
+  </filter>
+  <linearGradient id="grad-warm" x1="0" y1="0" x2="1" y2="0">
+    <stop offset="0%" stop-color="#e36c49"/>
+    <stop offset="55%" stop-color="#e1b049"/>
+    <stop offset="100%" stop-color="#e492a5"/>
+  </linearGradient>
+  <linearGradient id="grad-terra-mustard" x1="0" y1="0" x2="1" y2="0">
+    <stop offset="0%" stop-color="#e36c49"/>
+    <stop offset="100%" stop-color="#e1b049"/>
+  </linearGradient>
+  <linearGradient id="grad-pink-blue" x1="0" y1="0" x2="1" y2="0">
+    <stop offset="0%" stop-color="#e492a5"/>
+    <stop offset="100%" stop-color="#6b8bc7"/>
+  </linearGradient>
+  <linearGradient id="grad-rainbow-band" x1="0" y1="0" x2="1" y2="0">
+    <stop offset="0%" stop-color="#e36c49" stop-opacity="0"/>
+    <stop offset="15%" stop-color="#e36c49"/>
+    <stop offset="40%" stop-color="#e1b049"/>
+    <stop offset="65%" stop-color="#aac8b7"/>
+    <stop offset="88%" stop-color="#6b8bc7"/>
+    <stop offset="100%" stop-color="#6b8bc7" stop-opacity="0"/>
+  </linearGradient>
+  <radialGradient id="rg-terra" cx="50%" cy="50%" r="50%">
+    <stop offset="0%" stop-color="#e36c49" stop-opacity="1"/>
+    <stop offset="55%" stop-color="#c24c2b" stop-opacity="0.4"/>
+    <stop offset="100%" stop-color="#e36c49" stop-opacity="0"/>
+  </radialGradient>
+  <radialGradient id="rg-mustard" cx="50%" cy="50%" r="50%">
+    <stop offset="0%" stop-color="#e1b049" stop-opacity="1"/>
+    <stop offset="55%" stop-color="#ba892c" stop-opacity="0.4"/>
+    <stop offset="100%" stop-color="#e1b049" stop-opacity="0"/>
+  </radialGradient>
+  <radialGradient id="rg-sage" cx="50%" cy="50%" r="50%">
+    <stop offset="0%" stop-color="#aac8b7" stop-opacity="1"/>
+    <stop offset="55%" stop-color="#5a7770" stop-opacity="0.4"/>
+    <stop offset="100%" stop-color="#aac8b7" stop-opacity="0"/>
+  </radialGradient>
+  <radialGradient id="rg-blue" cx="50%" cy="50%" r="50%">
+    <stop offset="0%" stop-color="#6b8bc7" stop-opacity="1"/>
+    <stop offset="55%" stop-color="#3d5389" stop-opacity="0.4"/>
+    <stop offset="100%" stop-color="#6b8bc7" stop-opacity="0"/>
+  </radialGradient>
+  <radialGradient id="rg-pink" cx="50%" cy="50%" r="50%">
+    <stop offset="0%" stop-color="#e492a5" stop-opacity="1"/>
+    <stop offset="55%" stop-color="#a4536a" stop-opacity="0.4"/>
+    <stop offset="100%" stop-color="#e492a5" stop-opacity="0"/>
+  </radialGradient>
+  <radialGradient id="rg-iris" cx="50%" cy="50%" r="50%">
+    <stop offset="0%" stop-color="#6b8bc7"/>
+    <stop offset="25%" stop-color="#3d5389"/>
+    <stop offset="60%" stop-color="#e492a5"/>
+    <stop offset="88%" stop-color="#e36c49"/>
+    <stop offset="100%" stop-color="#0A0908" stop-opacity="0"/>
+  </radialGradient>
+  <radialGradient id="rg-iris-mask" cx="50%" cy="50%" r="50%">
+    <stop offset="70%" stop-color="#0A0908" stop-opacity="0"/>
+    <stop offset="100%" stop-color="#0A0908" stop-opacity="1"/>
+  </radialGradient>
+  <radialGradient id="rg-vignette" cx="50%" cy="42%" r="70%">
+    <stop offset="35%" stop-color="#0A0908" stop-opacity="0"/>
+    <stop offset="78%" stop-color="#0A0908" stop-opacity="0.5"/>
+    <stop offset="100%" stop-color="#0A0908" stop-opacity="0.88"/>
+  </radialGradient>
+</defs>
+
+<!-- ============ CANVAS ============ -->
+<rect id="canvas" width="1080" height="1350" fill="#0A0908"/>
+
+<!-- ============ BACKGROUND BLURS ============ -->
+<g id="background-blurs">
+  <ellipse cx="1170" cy="170" rx="360" ry="360" fill="url(#rg-mustard)" filter="url(#blur-heavy)" opacity="0.7"/>
+  <ellipse cx="-40" cy="1160" rx="450" ry="450" fill="url(#rg-terra)" filter="url(#blur-heavy)" opacity="0.75"/>
+  <ellipse cx="1080" cy="660" rx="230" ry="230" fill="url(#rg-sage)" filter="url(#blur-heavy)" opacity="0.5"/>
+</g>
+
+
+<!-- ============ FRAME ============ -->
+<rect id="frame-inset" x="32" y="32" width="1016" height="1286" rx="8" ry="8"
+      fill="none" stroke="rgba(237,230,216,0.06)" stroke-width="1"/>
+
+
+<!-- ============ HEADLINE ============ -->
+<g id="typography-headline" font-family="Jost, 'Helvetica Neue', sans-serif"
+   font-weight="900" letter-spacing="-3.1" font-size="104">
+  <text x="80" y="400" fill="#EDE6D8" style="text-transform:uppercase">SIAPA YANG</text>
+  <text x="80" y="500" fill="#EDE6D8" style="text-transform:uppercase">DOMINAN</text>
+  <text x="80" y="600" fill="#EDE6D8" style="text-transform:uppercase">
+    DI <tspan fill="url(#grad-terra-mustard)">HARIMU</tspan>
+  </text>
+  <text x="80" y="700" fill="#EDE6D8" style="text-transform:uppercase">INI?</text>
+</g>
+
+<!-- ============ CTA PILL ============ -->
+<g id="cta">
+  <rect x="80" y="800" width="620" height="124" rx="62" ry="62" fill="#EDE6D8"/>
+  <text x="128" y="878" fill="#0A0908"
+        font-family="Jost, 'Helvetica Neue', sans-serif"
+        font-weight="800" font-size="26" letter-spacing="8.3"
+        style="text-transform:uppercase">Coba tes sekarang</text>
+  <circle cx="640" cy="862" r="30" fill="#e36c49"/>
+  <text x="640" y="878" fill="#EDE6D8" text-anchor="middle"
+        font-family="Jost, 'Helvetica Neue', sans-serif"
+        font-size="32" font-weight="700">→</text>
+</g>
+
+<!-- ============ NOTE ============ -->
+<text id="cta-note" x="80" y="1000" fill="#d6cdb9"
+      font-family="Jost, 'Helvetica Neue', sans-serif"
+      font-style="italic" font-weight="300" font-size="26">
+  5 pertanyaan · tanpa diagnosis · cuma cerminan.
+</text>
+
+<!-- ============ URL ============ -->
+<text id="url" x="80" y="1160" fill="#e1b049"
+      font-family="Jost, 'Helvetica Neue', sans-serif"
+      font-weight="600" font-size="22" letter-spacing="9.2"
+      style="text-transform:uppercase">withintheblur.id / kuis</text>
+
+
+<!-- ============ GRAIN ============ -->
+<rect id="grain" width="1080" height="1350" fill="#EDE6D8" opacity="0.11" filter="url(#grain)"/>
+
+
+<!-- ============ (corners intentionally empty) ============ -->
+
+</svg>

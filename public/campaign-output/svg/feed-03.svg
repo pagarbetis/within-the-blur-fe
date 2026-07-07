@@ -1,0 +1,207 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1080 1350" width="1080" height="1350" fill="none">
+<title>Feed 03 · 3 Columns</title>
+<defs>
+  <filter id="blur-heavy" x="-40%" y="-40%" width="180%" height="180%">
+    <feGaussianBlur stdDeviation="60"/>
+  </filter>
+  <filter id="blur-medium" x="-40%" y="-40%" width="180%" height="180%">
+    <feGaussianBlur stdDeviation="40"/>
+  </filter>
+  <filter id="blur-soft" x="-40%" y="-40%" width="180%" height="180%">
+    <feGaussianBlur stdDeviation="20"/>
+  </filter>
+  <filter id="grain" x="0" y="0" width="100%" height="100%">
+    <feTurbulence type="fractalNoise" baseFrequency="0.85" numOctaves="2" stitchTiles="stitch"/>
+    <feColorMatrix values="0 0 0 0 0.95  0 0 0 0 0.93  0 0 0 0 0.85  0 0 0 0.4 0"/>
+    <feComposite operator="in" in2="SourceGraphic"/>
+  </filter>
+  <linearGradient id="grad-warm" x1="0" y1="0" x2="1" y2="0">
+    <stop offset="0%" stop-color="#e36c49"/>
+    <stop offset="55%" stop-color="#e1b049"/>
+    <stop offset="100%" stop-color="#e492a5"/>
+  </linearGradient>
+  <linearGradient id="grad-terra-mustard" x1="0" y1="0" x2="1" y2="0">
+    <stop offset="0%" stop-color="#e36c49"/>
+    <stop offset="100%" stop-color="#e1b049"/>
+  </linearGradient>
+  <linearGradient id="grad-pink-blue" x1="0" y1="0" x2="1" y2="0">
+    <stop offset="0%" stop-color="#e492a5"/>
+    <stop offset="100%" stop-color="#6b8bc7"/>
+  </linearGradient>
+  <linearGradient id="grad-rainbow-band" x1="0" y1="0" x2="1" y2="0">
+    <stop offset="0%" stop-color="#e36c49" stop-opacity="0"/>
+    <stop offset="15%" stop-color="#e36c49"/>
+    <stop offset="40%" stop-color="#e1b049"/>
+    <stop offset="65%" stop-color="#aac8b7"/>
+    <stop offset="88%" stop-color="#6b8bc7"/>
+    <stop offset="100%" stop-color="#6b8bc7" stop-opacity="0"/>
+  </linearGradient>
+  <radialGradient id="rg-terra" cx="50%" cy="50%" r="50%">
+    <stop offset="0%" stop-color="#e36c49" stop-opacity="1"/>
+    <stop offset="55%" stop-color="#c24c2b" stop-opacity="0.4"/>
+    <stop offset="100%" stop-color="#e36c49" stop-opacity="0"/>
+  </radialGradient>
+  <radialGradient id="rg-mustard" cx="50%" cy="50%" r="50%">
+    <stop offset="0%" stop-color="#e1b049" stop-opacity="1"/>
+    <stop offset="55%" stop-color="#ba892c" stop-opacity="0.4"/>
+    <stop offset="100%" stop-color="#e1b049" stop-opacity="0"/>
+  </radialGradient>
+  <radialGradient id="rg-sage" cx="50%" cy="50%" r="50%">
+    <stop offset="0%" stop-color="#aac8b7" stop-opacity="1"/>
+    <stop offset="55%" stop-color="#5a7770" stop-opacity="0.4"/>
+    <stop offset="100%" stop-color="#aac8b7" stop-opacity="0"/>
+  </radialGradient>
+  <radialGradient id="rg-blue" cx="50%" cy="50%" r="50%">
+    <stop offset="0%" stop-color="#6b8bc7" stop-opacity="1"/>
+    <stop offset="55%" stop-color="#3d5389" stop-opacity="0.4"/>
+    <stop offset="100%" stop-color="#6b8bc7" stop-opacity="0"/>
+  </radialGradient>
+  <radialGradient id="rg-pink" cx="50%" cy="50%" r="50%">
+    <stop offset="0%" stop-color="#e492a5" stop-opacity="1"/>
+    <stop offset="55%" stop-color="#a4536a" stop-opacity="0.4"/>
+    <stop offset="100%" stop-color="#e492a5" stop-opacity="0"/>
+  </radialGradient>
+  <radialGradient id="rg-iris" cx="50%" cy="50%" r="50%">
+    <stop offset="0%" stop-color="#6b8bc7"/>
+    <stop offset="25%" stop-color="#3d5389"/>
+    <stop offset="60%" stop-color="#e492a5"/>
+    <stop offset="88%" stop-color="#e36c49"/>
+    <stop offset="100%" stop-color="#0A0908" stop-opacity="0"/>
+  </radialGradient>
+  <radialGradient id="rg-iris-mask" cx="50%" cy="50%" r="50%">
+    <stop offset="70%" stop-color="#0A0908" stop-opacity="0"/>
+    <stop offset="100%" stop-color="#0A0908" stop-opacity="1"/>
+  </radialGradient>
+  <radialGradient id="rg-vignette" cx="50%" cy="42%" r="70%">
+    <stop offset="35%" stop-color="#0A0908" stop-opacity="0"/>
+    <stop offset="78%" stop-color="#0A0908" stop-opacity="0.5"/>
+    <stop offset="100%" stop-color="#0A0908" stop-opacity="0.88"/>
+  </radialGradient>
+</defs>
+
+<!-- ============ CANVAS ============ -->
+<rect id="canvas" width="1080" height="1350" fill="#0A0908"/>
+
+
+<!-- ============ FRAME ============ -->
+<rect id="frame-inset" x="32" y="32" width="1016" height="1286" rx="8" ry="8"
+      fill="none" stroke="rgba(237,230,216,0.06)" stroke-width="1"/>
+
+
+<!-- ============ HEADLINE ============ -->
+<g id="typography-headline" font-family="Jost, 'Helvetica Neue', sans-serif"
+   font-weight="800" letter-spacing="-1.2" font-size="62">
+  <text x="80" y="160" fill="#EDE6D8" style="text-transform:uppercase">
+    ADA <tspan fill="#e36c49">3 SUARA</tspan>
+  </text>
+  <text x="80" y="222" fill="#EDE6D8" style="text-transform:uppercase">DI DALAM KEPALAMU.</text>
+</g>
+
+<!-- ============ 3 COLUMNS ============ -->
+<g id="columns">
+
+  <g id="col-01">
+    <linearGradient id="grad-col-01" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#e36c49" stop-opacity="0.28"/>
+      <stop offset="100%" stop-color="#c24c2b" stop-opacity="0.10"/>
+    </linearGradient>
+    <rect x="40" y="240" width="320" height="720" rx="14" ry="14"
+          fill="url(#grad-col-01)" stroke="#e36c49" stroke-opacity="0.35" stroke-width="1"/>
+    <text x="70" y="345" fill="#e36c49"
+          font-family="Jost, 'Helvetica Neue', sans-serif"
+          font-weight="900" font-size="88" letter-spacing="-1.7">01</text>
+    <text x="70" y="395" fill="#d6cdb9"
+          font-family="Jost, 'Helvetica Neue', sans-serif"
+          font-weight="500" font-size="18" letter-spacing="5.7"
+          style="text-transform:uppercase">Sisi Insting</text>
+    <text x="70" y="640" fill="#EDE6D8"
+          font-family="Jost, 'Helvetica Neue', sans-serif"
+          font-weight="700" font-size="32">The Chimp</text>
+    <text x="70" y="690" fill="#d6cdb9"
+          font-family="Jost, 'Helvetica Neue', sans-serif"
+          font-style="italic" font-weight="300" font-size="20">Cepat, reaktif,</text>
+    <text x="70" y="720" fill="#d6cdb9"
+          font-family="Jost, 'Helvetica Neue', sans-serif"
+          font-style="italic" font-weight="300" font-size="20">ekspresif.</text>
+    <circle cx="91" cy="910" r="21" fill="#e36c49"/>
+    <text x="91" y="918" fill="#0A0908" text-anchor="middle"
+          font-family="Jost, 'Helvetica Neue', sans-serif"
+          font-weight="700" font-size="16" letter-spacing="0.32em">01</text>
+  </g>
+
+
+  <g id="col-02">
+    <linearGradient id="grad-col-02" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#e1b049" stop-opacity="0.28"/>
+      <stop offset="100%" stop-color="#ba892c" stop-opacity="0.10"/>
+    </linearGradient>
+    <rect x="380" y="240" width="320" height="720" rx="14" ry="14"
+          fill="url(#grad-col-02)" stroke="#e1b049" stroke-opacity="0.35" stroke-width="1"/>
+    <text x="410" y="345" fill="#e1b049"
+          font-family="Jost, 'Helvetica Neue', sans-serif"
+          font-weight="900" font-size="88" letter-spacing="-1.7">02</text>
+    <text x="410" y="395" fill="#d6cdb9"
+          font-family="Jost, 'Helvetica Neue', sans-serif"
+          font-weight="500" font-size="18" letter-spacing="5.7"
+          style="text-transform:uppercase">Sisi Pikir</text>
+    <text x="410" y="640" fill="#EDE6D8"
+          font-family="Jost, 'Helvetica Neue', sans-serif"
+          font-weight="700" font-size="32">The Human</text>
+    <text x="410" y="690" fill="#d6cdb9"
+          font-family="Jost, 'Helvetica Neue', sans-serif"
+          font-style="italic" font-weight="300" font-size="20">Pelan, logis,</text>
+    <text x="410" y="720" fill="#d6cdb9"
+          font-family="Jost, 'Helvetica Neue', sans-serif"
+          font-style="italic" font-weight="300" font-size="20">memilih.</text>
+    <circle cx="431" cy="910" r="21" fill="#e1b049"/>
+    <text x="431" y="918" fill="#0A0908" text-anchor="middle"
+          font-family="Jost, 'Helvetica Neue', sans-serif"
+          font-weight="700" font-size="16" letter-spacing="0.32em">02</text>
+  </g>
+
+
+  <g id="col-03">
+    <linearGradient id="grad-col-03" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#aac8b7" stop-opacity="0.28"/>
+      <stop offset="100%" stop-color="#5a7770" stop-opacity="0.10"/>
+    </linearGradient>
+    <rect x="720" y="240" width="320" height="720" rx="14" ry="14"
+          fill="url(#grad-col-03)" stroke="#aac8b7" stroke-opacity="0.35" stroke-width="1"/>
+    <text x="750" y="345" fill="#aac8b7"
+          font-family="Jost, 'Helvetica Neue', sans-serif"
+          font-weight="900" font-size="88" letter-spacing="-1.7">03</text>
+    <text x="750" y="395" fill="#d6cdb9"
+          font-family="Jost, 'Helvetica Neue', sans-serif"
+          font-weight="500" font-size="18" letter-spacing="5.7"
+          style="text-transform:uppercase">Sisi Rekam</text>
+    <text x="750" y="640" fill="#EDE6D8"
+          font-family="Jost, 'Helvetica Neue', sans-serif"
+          font-weight="700" font-size="32">The Computer</text>
+    <text x="750" y="690" fill="#d6cdb9"
+          font-family="Jost, 'Helvetica Neue', sans-serif"
+          font-style="italic" font-weight="300" font-size="20">Diam, tekun,</text>
+    <text x="750" y="720" fill="#d6cdb9"
+          font-family="Jost, 'Helvetica Neue', sans-serif"
+          font-style="italic" font-weight="300" font-size="20">membentuk pola.</text>
+    <circle cx="771" cy="910" r="21" fill="#aac8b7"/>
+    <text x="771" y="918" fill="#0A0908" text-anchor="middle"
+          font-family="Jost, 'Helvetica Neue', sans-serif"
+          font-weight="700" font-size="16" letter-spacing="0.32em">03</text>
+  </g>
+
+</g>
+
+<!-- ============ CAPTION ============ -->
+<text id="caption" x="540" y="1140" fill="#d6cdb9" text-anchor="middle"
+      font-family="Jost, 'Helvetica Neue', sans-serif"
+      font-style="italic" font-weight="300" font-size="26">Yang mana paling sering menang hari ini?</text>
+
+
+<!-- ============ GRAIN ============ -->
+<rect id="grain" width="1080" height="1350" fill="#EDE6D8" opacity="0.11" filter="url(#grain)"/>
+
+
+<!-- ============ (corners intentionally empty) ============ -->
+
+</svg>

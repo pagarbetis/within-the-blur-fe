@@ -1,0 +1,72 @@
+export const TID = {
+ nav: {
+ container: "nav-pill-container",
+ home: "nav-home",
+ checkin: "nav-checkin",
+ kuis: "nav-kuis",
+ maskot: "nav-maskot",
+ polling: "nav-polling",
+ curhat: "nav-curhat",
+ jurnal: "nav-jurnal",
+ brand: "nav-brand",
+ mobileToggle: "nav-mobile-toggle",
+ },
+ audio: {
+ toggle: "audio-toggle-button",
+ label: "audio-toggle-label",
+ },
+ home: {
+ hero: "home-hero",
+ headline: "home-headline",
+ sublineId: "home-subline-id",
+ ctaPrimary: "home-cta-primary",
+ ctaSecondary: "home-cta-secondary",
+ scrollHint: "home-scroll-hint",
+ feature: (i) => `home-feature-${i}`,
+ quote: "home-quote",
+ },
+ checkin: {
+ section: "checkin-section",
+ pill: (i) => `checkin-pill-${i}`,
+ note: "checkin-note",
+ submit: "checkin-submit",
+ result: "checkin-result",
+ reset: "checkin-reset",
+ },
+ kuis: {
+ section: "kuis-section",
+ progress: "kuis-progress",
+ question: "kuis-question",
+ option: (i) => `kuis-option-${i}`,
+ result: "kuis-result",
+ restart: "kuis-restart",
+ },
+ maskot: {
+ section: "maskot-section",
+ card: (i) => `maskot-card-${i}`,
+ },
+ polling: {
+ section: "polling-section",
+ poll: (i) => `poll-${i}`,
+ option: (i, j) => `poll-${i}-option-${j}`,
+ },
+ curhat: {
+ section: "curhat-section",
+ textarea: "curhat-textarea",
+ submit: "curhat-submit",
+ nameInput: "curhat-name",
+ feed: "curhat-feed",
+ entry: (i) => `curhat-entry-${i}`,
+ },
+ jurnal: {
+ section: "jurnal-section",
+ titleInput: "jurnal-title",
+ bodyInput: "jurnal-body",
+ moodPick: (m) => `jurnal-mood-${m}`,
+ save: "jurnal-save",
+ entry: (i) => `jurnal-entry-${i}`,
+ empty: "jurnal-empty",
+ },
+};
+
+export default TID;

@@ -1,0 +1,415 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Within The Blur · Campaign Assets Download</title>
+<link href="https://fonts.googleapis.com/css2?family=Jost:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg-deep: #0A0908;
+    --ivory: #EDE6D8;
+    --ivory-soft: #d6cdb9;
+    --taupe: #8a857a;
+    --terracotta: #e36c49;
+    --mustard: #e1b049;
+    --sage: #aac8b7;
+    --blue: #6b8bc7;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html, body {
+    background: var(--bg-deep);
+    color: var(--ivory);
+    font-family: 'Jost', 'Futura', 'Helvetica Neue', sans-serif;
+    min-height: 100vh;
+    overflow-x: hidden;
+  }
+  /* pure color blur bg */
+  .bg-blur {
+    position: fixed; inset: 0; pointer-events: none; z-index: 0;
+  }
+  .bg-blur::before, .bg-blur::after {
+    content: ""; position: absolute; border-radius: 50%;
+    filter: blur(120px);
+  }
+  .bg-blur::before {
+    top: -200px; left: -180px; width: 720px; height: 720px;
+    background: radial-gradient(circle at 50% 50%, rgba(227,108,73,0.55), transparent 70%);
+  }
+  .bg-blur::after {
+    bottom: -260px; right: -180px; width: 780px; height: 780px;
+    background: radial-gradient(circle at 50% 50%, rgba(107,139,199,0.45), transparent 70%);
+  }
+  .container {
+    position: relative; z-index: 1;
+    max-width: 1240px; margin: 0 auto;
+    padding: 80px 32px 120px;
+  }
+  .eyebrow {
+    font-size: 12px; letter-spacing: 0.5em; text-transform: uppercase;
+    color: var(--terracotta); font-weight: 500;
+    margin-bottom: 20px;
+  }
+  h1 {
+    font-weight: 800; font-size: clamp(48px, 6vw, 80px);
+    line-height: 0.98; letter-spacing: -0.02em;
+    text-transform: uppercase;
+    margin-bottom: 24px;
+  }
+  h1 .grad {
+    background: linear-gradient(95deg, #e36c49 0%, #e1b049 100%);
+    -webkit-background-clip: text; background-clip: text;
+    -webkit-text-fill-color: transparent; color: transparent;
+  }
+  .sub {
+    font-size: 18px; color: var(--ivory-soft);
+    font-style: italic; font-weight: 300; max-width: 640px;
+    line-height: 1.5;
+  }
+  .cta-row {
+    display: flex; gap: 16px; flex-wrap: wrap;
+    margin: 44px 0 60px;
+  }
+  .btn {
+    display: inline-flex; align-items: center; gap: 12px;
+    padding: 18px 30px; border-radius: 999px;
+    font-size: 13px; letter-spacing: 0.28em; text-transform: uppercase;
+    font-weight: 700; text-decoration: none;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+  }
+  .btn:hover { transform: translateY(-2px); }
+  .btn-primary {
+    background: var(--ivory); color: var(--bg-deep);
+    box-shadow: 0 12px 40px -10px rgba(227,108,73,0.5);
+  }
+  .btn-primary .arrow-icon {
+    width: 30px; height: 30px; border-radius: 50%;
+    background: var(--terracotta); color: var(--ivory);
+    display: inline-flex; align-items: center; justify-content: center;
+    font-size: 14px;
+  }
+  .btn-ghost {
+    background: transparent; color: var(--ivory-soft);
+    border: 1px solid rgba(237,230,216,0.2);
+  }
+  .btn-ghost:hover { border-color: var(--ivory-soft); color: var(--ivory); }
+
+  .section-title {
+    font-size: 11px; letter-spacing: 0.42em; text-transform: uppercase;
+    color: var(--taupe); font-weight: 500;
+    margin: 60px 0 24px; display: flex; align-items: center; gap: 16px;
+  }
+  .section-title::after {
+    content: ""; flex: 1; height: 1px; background: rgba(237,230,216,0.1);
+  }
+
+  .grid {
+    display: grid; gap: 24px;
+    grid-template-columns: repeat(3, 1fr);
+  }
+  @media (max-width: 900px) { .grid { grid-template-columns: repeat(2, 1fr); } }
+  @media (max-width: 560px) { .grid { grid-template-columns: 1fr; } }
+
+  .card {
+    background: rgba(237,230,216,0.03);
+    border: 1px solid rgba(237,230,216,0.08);
+    border-radius: 14px; overflow: hidden;
+    transition: transform 0.2s ease, border-color 0.2s ease;
+  }
+  .card:hover { transform: translateY(-3px); border-color: rgba(227,108,73,0.4); }
+  .card .thumb {
+    aspect-ratio: 4 / 5; overflow: hidden;
+    background: #17140f;
+    display: flex; align-items: center; justify-content: center;
+  }
+  .card .thumb img, .card .thumb video {
+    width: 100%; height: 100%; object-fit: cover;
+    display: block;
+  }
+  .card .meta {
+    padding: 16px 18px 18px;
+  }
+  .card .meta .id {
+    font-size: 10px; letter-spacing: 0.4em; text-transform: uppercase;
+    color: var(--taupe); margin-bottom: 6px;
+  }
+  .card .meta .name {
+    font-weight: 700; font-size: 15px;
+    color: var(--ivory); margin-bottom: 10px;
+    text-transform: uppercase; letter-spacing: 0.02em;
+  }
+  .card .meta .dl-row {
+    display: flex; flex-wrap: wrap; gap: 14px 22px; align-items: center;
+    margin-top: 4px;
+  }
+  .card .meta .dl {
+    display: inline-flex; align-items: center; gap: 8px;
+    font-size: 11px; letter-spacing: 0.24em; text-transform: uppercase;
+    color: var(--terracotta); text-decoration: none;
+    font-weight: 600;
+  }
+  .card .meta .dl:hover { color: var(--mustard); }
+  .card .meta .dl svg { width: 12px; height: 12px; }
+  .card .meta .dl:nth-of-type(2) { color: var(--sage); }
+  .card .meta .dl:nth-of-type(2):hover { color: var(--ivory); }
+
+  .badge-motion {
+    position: absolute; top: 10px; left: 10px;
+    padding: 5px 10px; border-radius: 999px;
+    background: rgba(227,108,73,0.9); color: var(--bg-deep);
+    font-size: 9px; letter-spacing: 0.3em; text-transform: uppercase;
+    font-weight: 700;
+  }
+  .thumb-wrap { position: relative; }
+
+  footer {
+    margin-top: 100px; padding-top: 40px;
+    border-top: 1px solid rgba(237,230,216,0.08);
+    font-size: 11px; letter-spacing: 0.32em; text-transform: uppercase;
+    color: var(--taupe); text-align: center;
+  }
+</style>
+</head>
+<body>
+  <div class="bg-blur"></div>
+  <div class="container">
+    <div class="eyebrow">Jeda · Sadar · Kenali</div>
+    <h1>Within The Blur.<br/><span class="grad">campaign assets</span></h1>
+    <p class="sub">
+      12 feed Instagram siap-tayang · 6 static PNG · 6 motion MP4 (10 detik, slow crossfade) · 9 SVG editable ·
+      Content Plan PDF · Merchandise range · Outfit guide untuk sidang.
+      Semua desain tanpa content-pillar label di isi konten, corner atas dibiarkan kosong untuk fokus penuh ke pesan.
+    </p>
+
+    <div class="cta-row">
+      <a class="btn btn-primary" href="./within-the-blur-campaign.zip" download data-testid="btn-download-all">
+        Unduh semua (ZIP)
+        <span class="arrow-icon">↓</span>
+      </a>
+      <a class="btn btn-ghost" href="./within-the-blur-content-plan.pdf" download data-testid="btn-download-plan">
+        Content Plan (PDF)
+        <span class="arrow-icon">↓</span>
+      </a>
+      <a class="btn btn-ghost" href="/" data-testid="btn-back-home">Kembali ke website</a>
+    </div>
+
+    <div class="cta-row" style="margin-top:12px;flex-wrap:wrap;">
+      <a class="btn btn-ghost" href="./merch/" data-testid="btn-merch" style="border-color: rgba(228,146,165,0.34); color:#e492a5;">Merchandise range</a>
+      <a class="btn btn-ghost" href="./outfit/" data-testid="btn-outfit" style="border-color: rgba(170,200,183,0.34); color:#aac8b7;">Outfit sidang</a>
+      <a class="btn btn-ghost" href="./bonus/" data-testid="btn-bonus" style="border-color: rgba(225,176,73,0.34); color:#e1b049;">Bonus hero feeds</a>
+    </div>
+
+    <div class="section-title">Static · 6 feed</div>
+    <div class="grid">
+      
+      <div class="card" data-testid="asset-card-01">
+        <div class="thumb-wrap">
+          <div class="thumb"><img src="./static/feed-01.png" alt="Feed 01"/></div>
+        </div>
+        <div class="meta">
+          <div class="id">static</div>
+          <div class="name">Pembuka provokatif</div>
+          <div class="dl-row">
+            <a class="dl" href="./static/feed-01.png" download data-testid="download-static-01">PNG <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v14M5 12l7 7 7-7M5 21h14"/></svg></a>
+            <a class="dl" href="./svg/feed-01.svg" download data-testid="download-svg-01">SVG <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v14M5 12l7 7 7-7M5 21h14"/></svg></a>
+          </div>
+        </div>
+      </div>
+
+      <div class="card" data-testid="asset-card-02">
+        <div class="thumb-wrap">
+          <div class="thumb"><img src="./static/feed-02.png" alt="Feed 02"/></div>
+        </div>
+        <div class="meta">
+          <div class="id">static</div>
+          <div class="name">Pertanyaan reflektif</div>
+          <div class="dl-row">
+            <a class="dl" href="./static/feed-02.png" download data-testid="download-static-02">PNG <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v14M5 12l7 7 7-7M5 21h14"/></svg></a>
+            <a class="dl" href="./svg/feed-02.svg" download data-testid="download-svg-02">SVG <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v14M5 12l7 7 7-7M5 21h14"/></svg></a>
+          </div>
+        </div>
+      </div>
+
+      <div class="card" data-testid="asset-card-03">
+        <div class="thumb-wrap">
+          <div class="thumb"><img src="./static/feed-03.png" alt="Feed 03"/></div>
+        </div>
+        <div class="meta">
+          <div class="id">static</div>
+          <div class="name">Teaser 3 suara</div>
+          <div class="dl-row">
+            <a class="dl" href="./static/feed-03.png" download data-testid="download-static-03">PNG <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v14M5 12l7 7 7-7M5 21h14"/></svg></a>
+            <a class="dl" href="./svg/feed-03.svg" download data-testid="download-svg-03">SVG <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v14M5 12l7 7 7-7M5 21h14"/></svg></a>
+          </div>
+        </div>
+      </div>
+
+      <div class="card" data-testid="asset-card-07">
+        <div class="thumb-wrap">
+          <div class="thumb"><img src="./static/feed-07.png" alt="Feed 07"/></div>
+        </div>
+        <div class="meta">
+          <div class="id">static</div>
+          <div class="name">Sintesis</div>
+          <div class="dl-row">
+            <a class="dl" href="./static/feed-07.png" download data-testid="download-static-07">PNG <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v14M5 12l7 7 7-7M5 21h14"/></svg></a>
+            <a class="dl" href="./svg/feed-07.svg" download data-testid="download-svg-07">SVG <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v14M5 12l7 7 7-7M5 21h14"/></svg></a>
+          </div>
+        </div>
+      </div>
+
+      <div class="card" data-testid="asset-card-08">
+        <div class="thumb-wrap">
+          <div class="thumb"><img src="./static/feed-08.png" alt="Feed 08"/></div>
+        </div>
+        <div class="meta">
+          <div class="id">static</div>
+          <div class="name">Konsep blur</div>
+          <div class="dl-row">
+            <a class="dl" href="./static/feed-08.png" download data-testid="download-static-08">PNG <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v14M5 12l7 7 7-7M5 21h14"/></svg></a>
+            <a class="dl" href="./svg/feed-08.svg" download data-testid="download-svg-08">SVG <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v14M5 12l7 7 7-7M5 21h14"/></svg></a>
+          </div>
+        </div>
+      </div>
+
+      <div class="card" data-testid="asset-card-09">
+        <div class="thumb-wrap">
+          <div class="thumb"><img src="./static/feed-09.png" alt="Feed 09"/></div>
+        </div>
+        <div class="meta">
+          <div class="id">static</div>
+          <div class="name">Call to action</div>
+          <div class="dl-row">
+            <a class="dl" href="./static/feed-09.png" download data-testid="download-static-09">PNG <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v14M5 12l7 7 7-7M5 21h14"/></svg></a>
+            <a class="dl" href="./svg/feed-09.svg" download data-testid="download-svg-09">SVG <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v14M5 12l7 7 7-7M5 21h14"/></svg></a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="section-title">Motion Characters · 3 feed</div>
+    <div class="grid">
+      
+      <div class="card" data-testid="asset-card-04">
+        <div class="thumb-wrap">
+          <div class="badge-motion">Motion · audio on</div>
+          <div class="thumb">
+            <video src="./motion/feed-04.mp4" poster="./motion/posters/feed-04.jpg"
+                   muted loop playsinline preload="auto"
+                   onmouseover="this.play()" onmouseout="this.pause();this.currentTime=1"></video>
+          </div>
+        </div>
+        <div class="meta">
+          <div class="id">motion</div>
+          <div class="name">The Chimp · instingmu</div>
+          <div class="dl-row">
+            <a class="dl" href="./motion/feed-04.mp4" download data-testid="download-motion-04">MP4 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v14M5 12l7 7 7-7M5 21h14"/></svg></a>
+            
+          </div>
+        </div>
+      </div>
+
+      <div class="card" data-testid="asset-card-05">
+        <div class="thumb-wrap">
+          <div class="badge-motion">Motion · audio on</div>
+          <div class="thumb">
+            <video src="./motion/feed-05.mp4" poster="./motion/posters/feed-05.jpg"
+                   muted loop playsinline preload="auto"
+                   onmouseover="this.play()" onmouseout="this.pause();this.currentTime=1"></video>
+          </div>
+        </div>
+        <div class="meta">
+          <div class="id">motion</div>
+          <div class="name">The Human · pilihanmu</div>
+          <div class="dl-row">
+            <a class="dl" href="./motion/feed-05.mp4" download data-testid="download-motion-05">MP4 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v14M5 12l7 7 7-7M5 21h14"/></svg></a>
+            
+          </div>
+        </div>
+      </div>
+
+      <div class="card" data-testid="asset-card-06">
+        <div class="thumb-wrap">
+          <div class="badge-motion">Motion · audio on</div>
+          <div class="thumb">
+            <video src="./motion/feed-06.mp4" poster="./motion/posters/feed-06.jpg"
+                   muted loop playsinline preload="auto"
+                   onmouseover="this.play()" onmouseout="this.pause();this.currentTime=1"></video>
+          </div>
+        </div>
+        <div class="meta">
+          <div class="id">motion</div>
+          <div class="name">The Computer · polamu</div>
+          <div class="dl-row">
+            <a class="dl" href="./motion/feed-06.mp4" download data-testid="download-motion-06">MP4 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v14M5 12l7 7 7-7M5 21h14"/></svg></a>
+            
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="section-title">Content Pillars · 3 feed</div>
+    <div class="grid">
+      
+      <div class="card" data-testid="asset-card-10">
+        <div class="thumb-wrap">
+          <div class="badge-motion">Motion · audio on</div>
+          <div class="thumb">
+            <video src="./motion/feed-10.mp4" poster="./motion/posters/feed-10.jpg"
+                   muted loop playsinline preload="auto"
+                   onmouseover="this.play()" onmouseout="this.pause();this.currentTime=1"></video>
+          </div>
+        </div>
+        <div class="meta">
+          <div class="id">motion</div>
+          <div class="name">Laporan Minggu Ini · Observe</div>
+          <div class="dl-row">
+            <a class="dl" href="./motion/feed-10.mp4" download data-testid="download-motion-10">MP4 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v14M5 12l7 7 7-7M5 21h14"/></svg></a>
+            <a class="dl" href="./svg/feed-10.svg" download data-testid="download-svg-10">SVG <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v14M5 12l7 7 7-7M5 21h14"/></svg></a>
+          </div>
+        </div>
+      </div>
+
+      <div class="card" data-testid="asset-card-11">
+        <div class="thumb-wrap">
+          <div class="badge-motion">Motion · audio on</div>
+          <div class="thumb">
+            <video src="./motion/feed-11.mp4" poster="./motion/posters/feed-11.jpg"
+                   muted loop playsinline preload="auto"
+                   onmouseover="this.play()" onmouseout="this.pause();this.currentTime=1"></video>
+          </div>
+        </div>
+        <div class="meta">
+          <div class="id">motion</div>
+          <div class="name">Rutinitas Pagi · Observe</div>
+          <div class="dl-row">
+            <a class="dl" href="./motion/feed-11.mp4" download data-testid="download-motion-11">MP4 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v14M5 12l7 7 7-7M5 21h14"/></svg></a>
+            <a class="dl" href="./svg/feed-11.svg" download data-testid="download-svg-11">SVG <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v14M5 12l7 7 7-7M5 21h14"/></svg></a>
+          </div>
+        </div>
+      </div>
+
+      <div class="card" data-testid="asset-card-12">
+        <div class="thumb-wrap">
+          <div class="badge-motion">Motion · audio on</div>
+          <div class="thumb">
+            <video src="./motion/feed-12.mp4" poster="./motion/posters/feed-12.jpg"
+                   muted loop playsinline preload="auto"
+                   onmouseover="this.play()" onmouseout="this.pause();this.currentTime=1"></video>
+          </div>
+        </div>
+        <div class="meta">
+          <div class="id">motion</div>
+          <div class="name">Loading · Pause</div>
+          <div class="dl-row">
+            <a class="dl" href="./motion/feed-12.mp4" download data-testid="download-motion-12">MP4 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v14M5 12l7 7 7-7M5 21h14"/></svg></a>
+            <a class="dl" href="./svg/feed-12.svg" download data-testid="download-svg-12">SVG <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v14M5 12l7 7 7-7M5 21h14"/></svg></a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <footer>within the blur · #JedaSadarKenali</footer>
+  </div>
+</body>
+</html>
