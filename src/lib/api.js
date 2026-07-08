@@ -11,8 +11,8 @@ export const apiClient = axios.create({
 });
 
 function friendlyError(err) {
-  const detail = err?.response?.data?.detail;
-  if (typeof detail === "string") return detail;
+  const errMsg = err?.response?.data?.error || err?.response?.data?.detail;
+  if (typeof errMsg === "string") return errMsg;
   if (err?.response?.status === 429) return "Terlalu banyak percobaan. Coba lagi dalam 15 menit.";
   if (err?.code === "ERR_NETWORK") return "Tidak bisa terhubung ke server. Coba lagi sebentar.";
   return "Terjadi kesalahan. Coba lagi.";
