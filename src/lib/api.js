@@ -10,9 +10,21 @@ export const apiClient = axios.create({
   headers: { "Content-Type": "application/json" },
 });
 
+// Attach Authorization header if token exists in localStorage
+apiClient.interceptors.request.use(
+  (config) => {
+    const token = localStorage.getItem("access_token");
+    if (token) {
+      config.headers.Authorization = `Bearer ${token}`;
+    }
+    return config;
+  },
+  (error) => Promise.reject(error)
+);
+
 function friendlyError(err) {
-  const detail = err?.response?.data?.detail;
-  if (typeof detail === "string") return detail;
+  const errMsg = err?.response?.data?.error || err?.response?.data?.detail;
+  if (typeof errMsg === "string") return errMsg;
   if (err?.response?.status === 429) return "Terlalu banyak percobaan. Coba lagi dalam 15 menit.";
   if (err?.code === "ERR_NETWORK") return "Tidak bisa terhubung ke server. Coba lagi sebentar.";
   return "Terjadi kesalahan. Coba lagi.";
@@ -21,6 +33,9 @@ function friendlyError(err) {
 export async function registerUser({ email, password, name }) {
   try {
     const { data } = await apiClient.post("/auth/register", { email, password, name });
+    if (data.access_token) {
+      localStorage.setItem("access_token", data.access_token);
+    }
     return data.user;
   } catch (err) {
     throw new Error(friendlyError(err));
@@ -30,6 +45,9 @@ export async function registerUser({ email, password, name }) {
 export async function loginUser({ email, password }) {
   try {
     const { data } = await apiClient.post("/auth/login", { email, password });
+    if (data.access_token) {
+      localStorage.setItem("access_token", data.access_token);
+    }
     return data.user;
   } catch (err) {
     throw new Error(friendlyError(err));
@@ -41,12 +59,21 @@ export async function logoutUser() {
     await apiClient.post("/auth/logout");
   } catch (err) {
     // ignore — cookies may already be gone
+  } finally {
+    localStorage.removeItem("access_token");
   }
 }
 
 export async function fetchMe() {
-  const { data } = await apiClient.get("/auth/me");
-  return data.user;
+  try {
+    const { data } = await apiClient.get("/auth/me");
+    return data.user;
+  } catch (err) {
+    if (err?.response?.status === 401) {
+      localStorage.removeItem("access_token");
+    }
+    throw err;
+  }
 }
 
 export async function updateProfileColor(color) {

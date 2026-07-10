@@ -154,79 +154,130 @@ function HumanSilhouette({ color, awake }) {
  );
 }
 
-function ComputerSilhouette({ color, awake }) {
- return (
- <svg viewBox="0 0 200 240" width="100%" height="100%" fill={color}>
- {/* whole device bob — same breathing motion language as Chimp/Human */}
- <motion.g
- animate={{ y: [0, -2, 0, -1, 0] }}
- transition={{ duration: 4.5, repeat: Infinity, ease: "easeInOut" }}
- >
- {/* monitor screen */}
- <rect x="36" y="26" width="128" height="96" rx="14" />
- {/* stand neck */}
- <path d="M 90 122 L 110 122 L 118 156 L 82 156 Z" />
- {/* base */}
- <rect x="60" y="156" width="80" height="14" rx="7" />
- {/* keyboard */}
- <rect x="40" y="192" width="120" height="16" rx="6" />
- {/* keyboard feet */}
- <ellipse cx="52" cy="216" rx="10" ry="7" />
- <ellipse cx="148" cy="216" rx="10" ry="7" />
- </motion.g>
+function ComputerSilhouette({ awake }) {
+  // Icon source: COMPUTER_DIYAH.svg — gradients kept as-provided in the asset,
+  // ids prefixed with "cpu-" so they never collide with other SVGs on the page.
+  return (
+    <svg viewBox="0 0 512 512" width="100%" height="100%">
+      <defs>
+        <linearGradient id="cpu-lg0" x1="39.95" y1="305.78" x2="294.72" y2="305.78" gradientUnits="userSpaceOnUse">
+          <stop offset="0" stopColor="#a9c7b6" />
+          <stop offset="1" stopColor="#e0af49" />
+        </linearGradient>
+        <linearGradient id="cpu-lg1" x1="26.79" y1="367.81" x2="319.13" y2="367.81" gradientUnits="userSpaceOnUse">
+          <stop offset="0" stopColor="#a9c7b6" />
+          <stop offset="1" stopColor="#e0af49" />
+        </linearGradient>
+        <linearGradient id="cpu-lg2" x1="464.39" y1="305.78" x2="719.16" y2="305.78" gradientTransform="translate(936.44) rotate(-180) scale(1 -1)" gradientUnits="userSpaceOnUse">
+          <stop offset="0" stopColor="#a9c7b6" />
+          <stop offset="1" stopColor="#e0af49" />
+        </linearGradient>
+        <linearGradient id="cpu-lg3" x1="451.23" y1="367.81" x2="743.57" y2="367.81" gradientTransform="translate(936.44) rotate(-180) scale(1 -1)" gradientUnits="userSpaceOnUse">
+          <stop offset="0" stopColor="#a9c7b6" />
+          <stop offset="1" stopColor="#e0af49" />
+        </linearGradient>
+        <linearGradient id="cpu-lg4" x1="321" y1="67" x2="421.92" y2="67" gradientUnits="userSpaceOnUse">
+          <stop offset="0" stopColor="#a9c7b6" />
+          <stop offset="1" stopColor="#e0af49" />
+        </linearGradient>
+        <linearGradient id="cpu-lg5" x1="-76.88" y1="5.69" x2="435.12" y2="517.69" gradientTransform="translate(1405 -292) scale(16 58)" gradientUnits="userSpaceOnUse">
+          <stop offset="0" stopColor="#a9c7b6" />
+          <stop offset="1" stopColor="#e0af49" />
+        </linearGradient>
+        <linearGradient id="cpu-lg6" x1="82" y1="297.89" x2="1247.83" y2="297.89" gradientTransform="translate(0 511.89) scale(1 -1)" gradientUnits="userSpaceOnUse">
+          <stop offset="0" stopColor="#a9c7b6" />
+          <stop offset=".16" stopColor="#acc5ae" />
+          <stop offset=".39" stopColor="#b7c09a" />
+          <stop offset=".67" stopColor="#c8b978" />
+          <stop offset=".99" stopColor="#dfaf49" />
+          <stop offset="1" stopColor="#e0af49" />
+        </linearGradient>
+        <linearGradient id="cpu-lg7" x1="207" y1="145.89" x2="545.53" y2="145.89" gradientTransform="translate(0 511.89) scale(1 -1)" gradientUnits="userSpaceOnUse">
+          <stop offset="0" stopColor="#a9c7b6" />
+          <stop offset="1" stopColor="#e0af49" />
+        </linearGradient>
+        <linearGradient id="cpu-lg8" x1="170" y1="103.89" x2="662.85" y2="103.89" gradientTransform="translate(0 511.89) scale(1 -1)" gradientUnits="userSpaceOnUse">
+          <stop offset="0" stopColor="#a9c7b6" />
+          <stop offset="1" stopColor="#e0af49" />
+        </linearGradient>
+      </defs>
 
- {/* screen bezel inset — subtle contrast like the eyes on other mascots */}
- <rect x="48" y="38" width="104" height="72" rx="8" fill="#0A0908" fillOpacity="0.22" />
+      {/* whole body idle/awake bob */}
+      <motion.g
+        animate={{ y: awake ? [0, -4, 0, -3, 0] : [0, -2, 0, -1, 0] }}
+        transition={{ duration: awake ? 2.2 : 4.5, repeat: Infinity, ease: "easeInOut" }}
+      >
+        {/* right arm + fist — pumps up on hover, gentle sway idle */}
+        <motion.g
+          animate={{ rotate: awake ? [0, -32, -6, -26, 0] : [0, 3, 0, 2, 0] }}
+          transition={{ duration: awake ? 1.4 : 5, repeat: Infinity, ease: "easeInOut" }}
+          style={{ originX: "82px", originY: "248px", transformOrigin: "82px 248px" }}
+        >
+          <path fill="url(#cpu-lg0)" d="M67.11,290.63c0-14.18,14.89-13.83,14.89-13.83v-31.03c-27,0-42,20-42,50l-.05,67.08h6.54c6.65,0,19.94,6.65,19.94,0,0,1.19.68-58.04.68-72.22Z" />
+          <path fill="url(#cpu-lg1)" d="M31.38,377.57c-6.6-5.67-5.71-14.84.33-19.86,11.66-9.68,28.87-10.09,41.07-.78,3.22,2.46,6.01,7.62,6.01,11.02,0,2.86-2.62,8.06-5.27,10.16-12.29,9.72-29.88,9.96-42.14-.55h0Z" />
+        </motion.g>
 
- {/* power LED blinks, same rhythm as before */}
- <motion.circle
- cx="150" cy="112" r="4"
- animate={{
- opacity: awake ? [1, 0.3, 1, 0.4, 1] : [1, 0.6, 1],
- }}
- transition={{
- duration: awake ? 1.2 : 3,
- repeat: Infinity,
- ease: "easeInOut",
- }}
- />
+        {/* left arm + fist — mirrored, opposite phase so they alternate like the reference video */}
+        <motion.g
+          animate={{ rotate: awake ? [0, 32, 6, 26, 0] : [0, -3, 0, -2, 0] }}
+          transition={{ duration: awake ? 1.4 : 5, repeat: Infinity, ease: "easeInOut", delay: awake ? 0.2 : 0.3 }}
+          style={{ originX: "430px", originY: "248px", transformOrigin: "430px 248px" }}
+        >
+          <path fill="url(#cpu-lg2)" d="M445.57,362.84c0,6.65,13.3,0,19.94,0h6.54s-.05-67.08-.05-67.08c0-30-15-50-42-50v31.03s14.89-.35,14.89,13.83.68,73.41.68,72.22Z" />
+          <path fill="url(#cpu-lg3)" d="M480.61,377.56c-12.25,10.51-29.85,10.27-42.14.55-2.65-2.1-5.26-7.3-5.27-10.16,0-3.4,2.8-8.56,6.01-11.02,12.2-9.32,29.41-8.9,41.07.78,6.04,5.01,6.93,14.19.33,19.86h0Z" />
+        </motion.g>
 
- {/* screen content / cursor glow — visible mainly on awake, mirrors the "glowing eyes" beat */}
- <motion.g
- animate={{ opacity: awake ? [0, 0.9, 0.9, 0] : [0.35, 0.5, 0.35] }}
- transition={{
- duration: awake ? 2.4 : 4,
- repeat: Infinity,
- times: awake ? [0, 0.15, 0.85, 1] : undefined,
- ease: "easeInOut",
- }}
- >
- <rect x="62" y="52" width="52" height="6" rx="3" fill="#0A0908" fillOpacity="0.5" />
- <rect x="62" y="66" width="34" height="6" rx="3" fill="#0A0908" fillOpacity="0.5" />
- <motion.rect
- x="62" width="8" rx="2" fill="#0A0908" fillOpacity="0.5"
- animate={{ height: awake ? [16, 26, 10, 20, 16] : 16, y: awake ? [86, 76, 92, 82, 86] : 86 }}
- transition={{ duration: 1.6, repeat: Infinity, ease: "easeInOut" }}
- />
- <motion.rect
- x="76" width="8" rx="2" fill="#0A0908" fillOpacity="0.5"
- animate={{ height: awake ? [24, 12, 22, 16, 24] : 24, y: awake ? [78, 90, 80, 86, 78] : 78 }}
- transition={{ duration: 1.6, repeat: Infinity, ease: "easeInOut", delay: 0.15 }}
- />
- <motion.rect
- x="90" width="8" rx="2" fill="#0A0908" fillOpacity="0.5"
- animate={{ height: awake ? [18, 24, 14, 26, 18] : 18, y: awake ? [84, 78, 88, 76, 84] : 84 }}
- transition={{ duration: 1.6, repeat: Infinity, ease: "easeInOut", delay: 0.3 }}
- />
- </motion.g>
- </svg>
- );
+        {/* ears — twitch like the Chimp's ears for a shared design language */}
+        <motion.g
+          animate={{ scale: awake ? [1, 1.18, 0.94, 1.08, 1] : [1, 1.04, 1] }}
+          transition={{ duration: awake ? 1.6 : 3.4, repeat: Infinity, ease: "easeInOut", repeatDelay: awake ? 0.5 : 1.8 }}
+          style={{ originX: "329px", originY: "59px", transformOrigin: "329px 59px" }}
+        >
+          <path fill="url(#cpu-lg4)" d="M329,38h0c4.42,0,8,3.58,8,8v42c0,4.42-3.58,8-8,8h0c-4.42,0-8-3.58-8-8v-42c0-4.42,3.58-8,8-8Z" />
+        </motion.g>
+        <motion.g
+          animate={{ scale: awake ? [1, 0.92, 1.16, 0.97, 1] : [1, 1.03, 1] }}
+          transition={{ duration: awake ? 1.6 : 3.4, repeat: Infinity, ease: "easeInOut", repeatDelay: awake ? 0.6 : 2, delay: 0.15 }}
+          style={{ originX: "183px", originY: "59px", transformOrigin: "183px 59px" }}
+        >
+          <path fill="url(#cpu-lg5)" d="M183,38h0c4.42,0,8,3.58,8,8v42c0,4.42-3.58,8-8,8h0c-4.42,0-8-3.58-8-8v-42c0-4.42,3.58-8,8-8Z" />
+        </motion.g>
+
+        {/* body + base */}
+        <g>
+          <rect fill="url(#cpu-lg6)" x="82" y="88" width="348" height="252" rx="38" ry="38" />
+          <path fill="url(#cpu-lg7)" d="M220,340h72l13,52h-98l13-52Z" />
+          <path fill="url(#cpu-lg8)" d="M186,392h140c8.84,0,16,7.16,16,16h0c0,8.84-7.16,16-16,16h-140c-8.84,0-16-7.16-16-16h0c0-8.84,7.16-16,16-16Z" />
+        </g>
+
+        {/* screen */}
+        <rect fill="#f6f6f2" x="112" y="118" width="288" height="192" rx="26" ry="26" />
+
+        {/* eyes — soft idle blink, quicker/livelier blink on awake */}
+        <motion.g
+          animate={{
+            scaleY: awake ? [1, 1, 0.15, 1, 1, 0.15, 1] : [1, 1, 0.12, 1],
+          }}
+          transition={{
+            duration: awake ? 2.2 : 4.2,
+            repeat: Infinity,
+            ease: "easeInOut",
+            times: awake ? [0, 0.35, 0.42, 0.5, 0.85, 0.92, 1] : [0, 0.85, 0.92, 1],
+          }}
+          style={{ originX: "256px", originY: "183px", transformOrigin: "256px 183px" }}
+        >
+          <rect fill="#0A0908" x="279.89" y="174.53" width="41.54" height="16.84" rx="8.42" ry="8.42" />
+          <rect fill="#0A0908" x="190.58" y="174.53" width="41.54" height="16.84" rx="8.42" ry="8.42" />
+        </motion.g>
+      </motion.g>
+    </svg>
+  );
 }
 
 function Silhouette({ kind, color, awake }) {
- if (kind === "chimp") return <ChimpSilhouette color={color} awake={awake} />;
- if (kind === "human") return <HumanSilhouette color={color} awake={awake} />;
- return <ComputerSilhouette color={color} awake={awake} />;
+  if (kind === "chimp") return <ChimpSilhouette color={color} awake={awake} />;
+  if (kind === "human") return <HumanSilhouette color={color} awake={awake} />;
+  return <ComputerSilhouette awake={awake} />;
 }
 
 // Speech bubble that appears on hover
