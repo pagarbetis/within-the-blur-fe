@@ -8,11 +8,7 @@ import { useAuth } from "@/context/AuthContext";
 
 const NAV_ITEMS = [
  { to: "/", label: "BERANDA", testId: TID.nav.home },
-<<<<<<< HEAD
  { to: "/maskot", label: "SISIMU", testId: TID.nav.maskot },
-=======
- { to: "/maskot", label: "MASKOT", testId: TID.nav.maskot },
->>>>>>> 02bb86f66808059a753fc769345f4a5bb8fe492a
  { to: "/kuis", label: "KUIS", testId: TID.nav.kuis },
  { to: "/cek-diri", label: "CEK DIRI", testId: TID.nav.checkin },
  { to: "/polling", label: "POLLING", testId: TID.nav.polling },
