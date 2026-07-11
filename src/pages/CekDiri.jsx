@@ -162,7 +162,7 @@ export default function CekDiri() {
  data-testid={TID.checkin.note}
  value={note}
  onChange={(e) => setNote(e.target.value)}
- placeholder="Tulis apa yang ada di pikiranmu. Sependek atau sepanjang yang kamu mau."
+ placeholder="Apa pun yang ingin kamu bagi, boleh ditulis disini."
  rows={5}
  className="w-full bg-transparent border border-white/10 rounded-2xl p-4 font-body text-[var(--ivory)] placeholder:text-[var(--ivory-soft)]/55 focus:outline-none focus:border-[#e36c49]/60 transition-colors resize-none hover-target"
  />
