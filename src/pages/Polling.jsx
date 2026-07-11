@@ -7,7 +7,7 @@ import PageNav from "@/components/PageNav";
 
 const INITIAL_POLLS = [
  {
- q: "Hal yang paling kamu butuhkan dari sekolah saat ini?",
+ q: "Hal yang paling kamu butuhkan dari kuliah saat ini?",
  options: [
  { t: "Ruang istirahat yang lebih banyak", v: 142 },
  { t: "Guru yang mau mendengar tanpa menghakimi", v: 219 },
