@@ -431,6 +431,7 @@ export default function Maskot() {
   <br />
   <br />
 <a href="https://chimpmanagement.com/" target="_blank">Link: Dr. Steve Peters</a>
+  <br />
  <span className="block mt-2 text-[#e1b049] text-[10px] font-display tracking-[0.34em] uppercase">
  ↓ Arahkan kursor ke maskot mereka hidup.
  </span>
