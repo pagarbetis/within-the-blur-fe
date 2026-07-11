@@ -404,9 +404,6 @@ export default function Maskot() {
  className="px-6 sm:px-10 lg:px-20 pt-36 pb-24 min-h-screen"
  >
  <Reveal>
- <p className="text-[10px] font-display tracking-[0.5em] uppercase text-[#aac8b7] mb-4">
- Maskot · The Chimp Paradox
- </p>
  <h1
  className="font-display-bold text-5xl md:text-7xl uppercase leading-[1.02] text-[var(--ivory)] max-w-4xl"
  style={{ letterSpacing: "-0.015em" }}
