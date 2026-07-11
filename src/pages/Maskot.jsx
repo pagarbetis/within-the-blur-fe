@@ -417,11 +417,15 @@ export default function Maskot() {
  Peters. Bukan untuk dipilih satu mereka tinggal bersama di dalammu.
  Tugasmu: mengenali siapa yang sedang bicara.
   <br />
+  <br />
   Dr. Steve Peters adalah seorang psikiater yang banyak bekerja di bidang performa mental, termasuk mendampingi atlet dan profesional dalam memahami cara mereka merespons tekanan. Melalui The Chimp Paradox, ia memperkenalkan sebuah model yang telah membantu banyak orang merefleksikan cara mereka berpikir dan bereaksi.
   <br />
+  <br />
   Kalau setelah mencoba kamu merasa ingin mengenal konsep ini lebih jauh, buku The Chimp Paradox bisa menjadi tempat yang baik untuk memulainya.
-<a href="https://www.penguinrandomhouse.com/books/313353/the-chimp-paradox-by-steve-peters/">📖 The Chimp Paradox</a>
-<a href="https://chimpmanagement.com/">🌐 Dr. Steve Peters</a>
+  <br />
+<a href="https://www.penguinrandomhouse.com/books/313353/the-chimp-paradox-by-steve-peters/" target="_blank">📖 The Chimp Paradox</a>
+  <br />
+<a href="https://chimpmanagement.com/" target="_blank">🌐 Dr. Steve Peters</a>
  <span className="block mt-2 text-[#e1b049] text-[10px] font-display tracking-[0.34em] uppercase">
  ↓ Arahkan kursor ke maskot mereka hidup.
  </span>
