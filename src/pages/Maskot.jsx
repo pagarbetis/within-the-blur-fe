@@ -423,7 +423,9 @@ export default function Maskot() {
   <br />
   Kalau setelah mencoba kamu merasa ingin mengenal konsep ini lebih jauh, buku The Chimp Paradox bisa menjadi tempat yang baik untuk memulainya.
   <br />
+  <br />
 <a href="https://www.penguinrandomhouse.com/books/313353/the-chimp-paradox-by-steve-peters/" target="_blank">📖 The Chimp Paradox</a>
+  <br />
   <br />
 <a href="https://chimpmanagement.com/" target="_blank">🌐 Dr. Steve Peters</a>
  <span className="block mt-2 text-[#e1b049] text-[10px] font-display tracking-[0.34em] uppercase">
