@@ -415,9 +415,9 @@ export default function Maskot() {
  <p className="mt-6 text-base font-body text-[var(--ivory-soft)] max-w-2xl leading-relaxed">
  Konsep ini diambil dari buku <em>The Chimp Paradox</em> oleh Dr. Steve
  Peters. Bukan untuk dipilih satu mereka tinggal bersama di dalammu.
- Tugasmu:
   <br />
-  mengenali siapa yang sedang bicara.
+  <br />
+ Tugasmu:<em>mengenali siapa yang sedang bicara.</em>
   <br />
   <br />
   Dr. Steve Peters adalah seorang psikiater yang banyak bekerja di bidang performa mental, termasuk mendampingi atlet dan profesional dalam memahami cara mereka merespons tekanan. Melalui The Chimp Paradox, ia memperkenalkan sebuah model yang telah membantu banyak orang merefleksikan cara mereka berpikir dan bereaksi.
