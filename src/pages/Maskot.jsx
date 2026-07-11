@@ -383,15 +383,15 @@ function MascotCard({ m, i }) {
  >
  {m.tagline}
  </p>
- <p className="text-sm font-body leading-relaxed text-[var(--ivory-soft)] mb-4">
- {m.body}
- </p>
- <div
+  <div
  className="text-[11px] font-body italic"
  style={{ color: m.accent }}
  >
  → {m.note}
  </div>
+ <p className="text-sm font-body leading-relaxed text-[var(--ivory-soft)] mb-4">
+ {m.body}
+ </p>
  </div>
  </motion.div>
  );
@@ -415,7 +415,9 @@ export default function Maskot() {
  <p className="mt-6 text-base font-body text-[var(--ivory-soft)] max-w-2xl leading-relaxed">
  Konsep ini diambil dari buku <em>The Chimp Paradox</em> oleh Dr. Steve
  Peters. Bukan untuk dipilih satu mereka tinggal bersama di dalammu.
- Tugasmu: mengenali siapa yang sedang bicara.
+ Tugasmu:
+  <br />
+  mengenali siapa yang sedang bicara.
   <br />
   <br />
   Dr. Steve Peters adalah seorang psikiater yang banyak bekerja di bidang performa mental, termasuk mendampingi atlet dan profesional dalam memahami cara mereka merespons tekanan. Melalui The Chimp Paradox, ia memperkenalkan sebuah model yang telah membantu banyak orang merefleksikan cara mereka berpikir dan bereaksi.
