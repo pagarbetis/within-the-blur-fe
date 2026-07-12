@@ -10,7 +10,7 @@ const INITIAL_POLLS = [
  q: "Hal yang paling kamu butuhkan dari kuliah saat ini?",
  options: [
  { t: "Ruang istirahat yang lebih banyak", v: 142 },
- { t: "Guru yang mau mendengar tanpa menghakimi", v: 219 },
+ { t: "Dosen yang mau mendengar tanpa menghakimi", v: 219 },
  { t: "Beban tugas yang lebih masuk akal", v: 188 },
  { t: "Teman bicara di hari yang berat", v: 167 },
  ],
